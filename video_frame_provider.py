@@ -23,7 +23,7 @@ class LoadVideoFrameInvocation(BaseInvocation):
 
     # Inputs
     video_path: str = Field(description="The path to the MP4 video file")
-    frame_number: int = Field(description="The frame number to load")
+    frame_number: int = Field(default=1, description="The frame number to load")
     # fmt: on
 
     class Config(InvocationConfig):
