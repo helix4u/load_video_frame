@@ -1,4 +1,4 @@
-# load_video_frame
+# Load Video Frame
 
 This is a video frame image provider for hooking up to iterators and ranges and ControlNets and such for [invokeAI](https://github.com/invoke-ai/InvokeAI) node experimentation. 
 Think animation ControlNet outputs.
