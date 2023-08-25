@@ -1,9 +1,13 @@
 # load_video_frame
-A video frame image provider for hooking up to iterators and ranges and ControlNets and such for invokeAI node experimentation. Think animation ControlNet outputs.
+
+This is a video frame image provider for hooking up to iterators and ranges and ControlNets and such for [invokeAI](https://github.com/invoke-ai/InvokeAI) node experimentation. 
+Think animation ControlNet outputs.
+
+Caveat: A high number of frames may cause a bit of time to create with the example workflow. I'd stick to smaller batches of frames at first and slowly ramp up to find a length of time you're willing to wait for the task to start/complete.
 
 Feel free to contribute or take ispiration for your own ideas and thanks to those who already have!
 
-Aslo... teach me how to github... its been too long.
+[Example_Workflow](Example_Workflow.json):
+![Example_Workflow](https://i.imgur.com/GuwNHN8.png)
 
-Bonus link for those that are overly comfortable financially and like things I do:
-https://ko-fi.com/gille
+<a href='https://ko-fi.com/gille' target='_blank'><img height='35' style='border:0px;height:46px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' />
