@@ -120,7 +120,7 @@ class ImagesIndexToVideoInvocation(BaseInvocation):#, PILInvocationConfig):
 
         for item in new_array:
             image = context.services.images.get_pil_image(item[1])
-            image = np.array(image)
+            image = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
             video_writer.write(image)
 
         video_writer.release()
