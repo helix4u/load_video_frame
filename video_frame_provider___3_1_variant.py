@@ -11,7 +11,7 @@ from .baseinvocation import BaseInvocation, FieldDescriptions, InputField, Invoc
 
 """
 todo:
-investigate using GetTotalFramesInvocation to make batch ranges easier/consider making the range part since the range node seems to not do ordered/sequential step, just... random steps, so setting a start stop programatically seems imposible with that rn. 
+investigate using GetTotalFramesInvocation to make batch ranges easier/consider making the iterator since the range is not iterated sequentially. 
 Clean up and consider how to orient to the new code direction of the project (?) Re:
 Commit that breaks us and causes a requires updates to likely all community nodes: https://github.com/invoke-ai/InvokeAI/commit/044d4c107ae30d10048270500b9dc3fd66d14617
 Notes from psychedlicious:
