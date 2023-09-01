@@ -1,33 +1,31 @@
 from typing import Literal, Optional
-from PIL import Image
 import cv2
 import json
 import numpy as np
 from pathlib import Path
-from typing import Literal, Optional
-import cv2
 from PIL import Image, ImageChops, ImageFilter, ImageOps
-from invokeai.app.invocations.metadata import CoreMetadata
 from invokeai.app.invocations.primitives import ColorField, ImageField, ImageOutput
-from invokeai.backend.image_util.safety_checker import SafetyChecker
 from pydantic import Field
-
-from .primitives import ImageField
 from ..models.image import ImageCategory, ResourceOrigin
 from .baseinvocation import BaseInvocation, FieldDescriptions, InputField, InvocationContext, invocation, BaseInvocationOutput, UIComponent, invocation_output, OutputField, UIType
+
+"""
+Todo:
+Notes for reference from psychedlicious:
+the @invocation decorator replaces  type: Literal... . it's first argument is that value. so you would, for example, @invocation("load_video_frame" .... technically its the same as type: Literal but more succinct and lets us change any implementation details as needed without impacting functionality of the node.
+same for outputs. use @invocation_output("output_type") instead of type
+similarly, class Config is totally replaced by the decorator. you can omit this on all nodes.
+suggest to include workflow=self.workflow in the call to context.services.images.create(). this allows the images created by that node to embed the workflow into them. this checkbox will be displayed on every node that outputs an image, but unfortunately i couldn't figure out a way to implement it without adding workflow=self.workflow to the create() call manually.
+all outputs should use OutputField instead of Field
+most of this is in the updated invocations docs: https://github.com/invoke-ai/InvokeAI/blob/main/docs/contributing/INVOCATIONS.md
+"""
 
 @invocation("LoadVideoFrameInvocation", title="Load Video Frame", tags=["video", "load", "frame"], category="image")
 class LoadVideoFrameInvocation(BaseInvocation):
     """Load a specific frame from an MP4 video and provide it as output."""
-
-    # fmt: off
-    type: Literal["load_video_frame"] = "load_video_frame"
-
     # Inputs
     video_path: str = InputField(description="The path to the MP4 video file")
     frame_number: int = InputField(default=1, ge=1, description="The frame number to load")
-    # fmt: on
-
 
     def invoke(self, context: InvocationContext) -> ImageOutput:
         # Open the video file
@@ -56,6 +54,7 @@ class LoadVideoFrameInvocation(BaseInvocation):
             node_id=self.id,
             session_id=context.graph_execution_state_id,
             is_intermediate=self.is_intermediate,
+            workflow=self.workflow,
         )
 
         return ImageOutput(
@@ -66,13 +65,10 @@ class LoadVideoFrameInvocation(BaseInvocation):
 
 
 
+@invocation_output("image_index_collect_output")
 class ImageIndexCollectOutput(BaseInvocationOutput):
-    """XImageCollectOutput string containg an array of xItem, Image_name converted to json"""
-    type: Literal["image_index_collect_output"] = "image_index_collect_output"
-    image_index_collection: str = Field(description="The Image Index Collection ")
-
-    class Config:
-        schema_extra = {'required': ['type','ximage']}
+    """XImageCollectOutput string containing an array of xItem, Image_name converted to json"""
+    image_index_collection: str = OutputField(description="The Image Index Collection ")
 
 @invocation(
     "ImageIndexCollectInvocation", 
@@ -86,19 +82,11 @@ class ImageIndexCollectInvocation(BaseInvocation):
     index: int = InputField(default=0, description="The index")
     image: ImageField = InputField(default=None, description="The image associated with the index")
 
-    class Config():
-        schema_extra = {"ui": {"title": "Image Index Collect"}}
-
     def invoke(self, context: InvocationContext) -> ImageIndexCollectOutput:
         """Invoke with provided services and return outputs."""
         return ImageIndexCollectOutput(image_index_collection = json.dumps([self.index , self.image.image_name]))
 
-@invocation(
-    "ImagesIndexToVideoInvocation", 
-    title="Image Index To Video", 
-    tags=["video", "collection", "image", "index", "frame", "collection"]
-)    
-
+  
 class ImagesIndexToVideoOutput(BaseInvocationOutput):
     """ImagesIndexToVideoOutput returns nothing"""
     type: Literal["image_index_to_video_output"] = "image_index_to_video_output"
@@ -109,17 +97,13 @@ class ImagesIndexToVideoOutput(BaseInvocationOutput):
 class ImagesIndexToVideoInvocation(BaseInvocation):#, PILInvocationConfig):
     """Load a collection of xyimage types (json of (x_item,y_item,image_name)array) and create a gridimage of them"""
     type: Literal["image_index_to_video"] = "image_index_to_video"
-    
     image_index_collection: list[str] = InputField(default_factory=list, description="The Image Index Collection", ui_type=UIType.ImageCollection)
     video_out_path: str = InputField(default='', description="Path and filename of output mp4")
     fps: int = InputField(default=30, description="FPS")
 
-    class Config():
-        schema_extra = {"ui": {"title": "Image Index To Video"}}
   
     def invoke(self, context: InvocationContext) -> ImagesIndexToVideoOutput:
         """Convert an image list a video"""
-
         new_array = sorted([json.loads(s) for s in self.image_index_collection], key=lambda x: x[0])
         image = context.services.images.get_pil_image(new_array[0][1])
         
