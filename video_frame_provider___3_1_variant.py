@@ -12,6 +12,8 @@ from .baseinvocation import BaseInvocation, FieldDescriptions, InputField, Invoc
 """
 todo:
 investigate using GetTotalFramesInvocation to make batch ranges easier/consider making the range part since the range node seems to not do ordered/sequential step, just... random steps, so setting a start stop programatically seems imposible with that rn. 
+Clean up and consider how to orient to the new code direction of the project (?) Re:
+Commit that breaks us and causes a requires updates to likely all community nodes: https://github.com/invoke-ai/InvokeAI/commit/044d4c107ae30d10048270500b9dc3fd66d14617
 Notes from psychedlicious:
 the @invocation decorator replaces  type: Literal... . it's first argument is that value. so you would, for example, @invocation("load_video_frame" .... technically its the same as type: Literal but more succinct and lets us change any implementation details as needed without impacting functionality of the node.
 same for outputs. use @invocation_output("output_type") instead of type
