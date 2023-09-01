@@ -3,9 +3,14 @@
 This is a video frame image provider + indexer/video creation nodes for hooking up to iterators and ranges and ControlNets and such for [invokeAI](https://github.com/invoke-ai/InvokeAI) node experimentation >
 Think animation + ControlNet outputs.
 
-Caveat: A high number of frames may cause a bit of time to create with the example workflow. I'd stick to smaller batches of frames at first and slowly ramp up to find a length of time you're willing to wait for the task to start/complete.
+# Caveats: 
+> Pick the correct versions to try... 
+> There have changes in how nodes and workflows work since original publication, so version matters and **MUST MATCH**.
 
-Tip: Render every other frame and then interpolate the in-between frames with something like RIFE or FILM for some more smoothing and a lot less rendering time.
+A high number of frames may cause a bit of time to create with the example workflow. I'd stick to smaller batches of frames at first and slowly ramp up to find a length of time you're willing to wait for the task to start/complete.
+
+# Tips: 
+Render every other frame and then interpolate the in-between frames with something like RIFE or FILM for some more smoothing and a lot less rendering time.
 
 Feel free to contribute or take ispiration for your own ideas and thanks to those who already have!
 
