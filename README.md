@@ -1,7 +1,5 @@
 # Load Video Frame
 
-> **(FOR invokeAI 3.0... for 3.1 I need to figure out a couple of things and update... stay tuned... maybe....)**
-
 This is a video frame image provider + indexer/video creation nodes for hooking up to iterators and ranges and ControlNets and such for [invokeAI](https://github.com/invoke-ai/InvokeAI) node experimentation >
 Think animation + ControlNet outputs.
 
