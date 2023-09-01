@@ -4,14 +4,15 @@ import json
 import numpy as np
 from pathlib import Path
 from PIL import Image, ImageChops, ImageFilter, ImageOps
-from invokeai.app.invocations.primitives import ColorField, ImageField, ImageOutput
+from invokeai.app.invocations.primitives import ColorField, ImageField, ImageOutput, IntegerOutput
 from pydantic import Field
 from ..models.image import ImageCategory, ResourceOrigin
 from .baseinvocation import BaseInvocation, FieldDescriptions, InputField, InvocationContext, invocation, BaseInvocationOutput, UIComponent, invocation_output, OutputField, UIType
 
 """
-Todo:
-Notes for reference from psychedlicious:
+todo:
+investigate using GetTotalFramesInvocation to make batch ranges easier/consider making the range part since the range node seems to not do ordered/sequential step, just... random steps, so setting a start stop programatically seems imposible with that rn. 
+Notes from psychedlicious:
 the @invocation decorator replaces  type: Literal... . it's first argument is that value. so you would, for example, @invocation("load_video_frame" .... technically its the same as type: Literal but more succinct and lets us change any implementation details as needed without impacting functionality of the node.
 same for outputs. use @invocation_output("output_type") instead of type
 similarly, class Config is totally replaced by the decorator. you can omit this on all nodes.
@@ -117,3 +118,23 @@ class ImagesIndexToVideoInvocation(BaseInvocation):#, PILInvocationConfig):
         video_writer.release()
 
         return ImagesIndexToVideoOutput()
+ 
+ 
+@invocation("GetTotalFramesInvocation", title="Get Total Frames", tags=["video", "frames", "count"], category="video")
+class GetTotalFramesInvocation(BaseInvocation):
+    """Get the total number of frames in an MP4 video and provide it as output."""
+    
+    # Inputs
+    video_path: str = InputField(description="The path to the MP4 video file")
+
+    def invoke(self, context: InvocationContext) -> IntegerOutput:
+        # Open the video file
+        video = cv2.VideoCapture(self.video_path)
+        
+        # Get the total number of frames
+        total_frames = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
+        
+        # Close the video file
+        video.release()
+
+        return IntegerOutput(value=total_frames)
