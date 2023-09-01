@@ -5,7 +5,7 @@ Think animation + ControlNet outputs.
 
 # Caveats: 
 > Pick the correct versions to try... 
-> There have changes in how nodes and workflows work since original publication, so version matters and **MUST MATCH**.
+> There have been changes in how nodes and workflows work since original publication, so version matters and **MUST MATCH**.
 
 A high number of frames may cause a bit of time to create with the example workflow. I'd stick to smaller batches of frames at first and slowly ramp up to find a length of time you're willing to wait for the task to start/complete.
 
