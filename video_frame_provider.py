@@ -10,10 +10,6 @@ from ..models.image import ImageCategory, ResourceOrigin
 from .baseinvocation import BaseInvocation, FieldDescriptions, InputField, InvocationContext, invocation, BaseInvocationOutput, UIComponent, invocation_output, OutputField, UIType
 
 """
-todo:
-investigate using GetTotalFramesInvocation to make batch ranges easier/consider making the iterator since the range is not iterated sequentially. 
-Clean up and consider how to orient to the new code direction of the project (?) Re:
-Commit that breaks us and causes a requires updates to likely all community nodes: https://github.com/invoke-ai/InvokeAI/commit/044d4c107ae30d10048270500b9dc3fd66d14617
 Notes from psychedlicious:
 the @invocation decorator replaces  type: Literal... . it's first argument is that value. so you would, for example, @invocation("load_video_frame" .... technically its the same as type: Literal but more succinct and lets us change any implementation details as needed without impacting functionality of the node.
 same for outputs. use @invocation_output("output_type") instead of type
@@ -140,3 +136,22 @@ class GetTotalFramesInvocation(BaseInvocation):
         video.release()
 
         return IntegerOutput(value=total_frames)
+        
+@invocation("GetSourceFrameRateInvocation", title="Get Source Frame Rate", tags=["video", "framerate"], category="video")
+class GetSourceFrameRateInvocation(BaseInvocation):
+    """Get the source framerate of an MP4 video and provide it as output."""
+    
+    # Inputs
+    video_path: str = InputField(description="The path to the MP4 video file")
+
+    def invoke(self, context: InvocationContext) -> IntegerOutput:
+        # Open the video file
+        video = cv2.VideoCapture(self.video_path)
+        
+        # Get the source framerate
+        framerate = int(video.get(cv2.CAP_PROP_FPS))
+        
+        # Close the video file
+        video.release()
+
+        return IntegerOutput(value=framerate)
