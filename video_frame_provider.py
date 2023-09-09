@@ -106,7 +106,7 @@ class ImagesIndexToVideoInvocation(BaseInvocation):#, PILInvocationConfig):
         new_array = sorted([json.loads(s) for s in self.image_index_collection], key=lambda x: x[0])
         image = context.services.images.get_pil_image(new_array[0][1])
         
-        video_writer = cv2.VideoWriter(self.video_out_path, cv2.VideoWriter_fourcc(*'mp4v'), self.fps, (image.width, image.height))
+        video_writer = cv2.VideoWriter(self.video_out_path, cv2.VideoWriter_fourcc(*'X264'), self.fps, (image.width, image.height))
 
         for item in new_array:
             image = context.services.images.get_pil_image(item[1])
