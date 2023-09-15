@@ -10,16 +10,39 @@ from ..models.image import ImageCategory, ResourceOrigin
 from .baseinvocation import BaseInvocation, FieldDescriptions, InputField, InvocationContext, invocation, BaseInvocationOutput, UIComponent, invocation_output, OutputField, UIType
 
 """
-Notes from psychedlicious:
-the @invocation decorator replaces  type: Literal... . it's first argument is that value. so you would, for example, @invocation("load_video_frame" .... technically its the same as type: Literal but more succinct and lets us change any implementation details as needed without impacting functionality of the node.
-same for outputs. use @invocation_output("output_type") instead of type
-similarly, class Config is totally replaced by the decorator. you can omit this on all nodes.
-suggest to include workflow=self.workflow in the call to context.services.images.create(). this allows the images created by that node to embed the workflow into them. this checkbox will be displayed on every node that outputs an image, but unfortunately i couldn't figure out a way to implement it without adding workflow=self.workflow to the create() call manually.
+ImagesIndexToVideoInvocation and it's output still need to be sorted out but does function as-is.
+
+Notes: 
+
+the @invocation decorator replaces  type: Literal.
+it's first argument is that value.
+for example, @invocation("load_video_frame" technically is the same as type: Literal but more succinct and lets us change any implementation details as needed without impacting functionality of the node.
+same for outputs.
+
+use @invocation_output("output_type") ()) instead of type
+
+class Config is totally replaced by the decorator. you can omit this on all nodes.
+
+suggest to include workflow=self.workflow in the call to context.services.images.create(). this allows the images created by that node to embed the workflow into them. this checkbox will be displayed on every node that outputs an image
+
 all outputs should use OutputField instead of Field
-most of this is in the updated invocations docs: https://github.com/invoke-ai/InvokeAI/blob/main/docs/contributing/INVOCATIONS.md
+
+Todo:
+Translate ImagesIndexToVideoOutput and it's output into invocation decorator speak using notes and links as context:
+
+links for reading the how:
+invokeai/app/invocations/primitives.py
+invokeai/app/invocations/baseinvocation.py
+a.k.a. if it doesnt make sense, just go look at working examples and adapt from there.
 """
 
-@invocation("LoadVideoFrameInvocation", title="Load Video Frame", tags=["video", "load", "frame"], category="image")
+@invocation(
+    "LoadVideoFrameInvocation", 
+    title="Load Video Frame", 
+    tags=["video", "load", "frame"], 
+    category="image",
+    version="1.0.0",
+)
 class LoadVideoFrameInvocation(BaseInvocation):
     """Load a specific frame from an MP4 video and provide it as output."""
     # Inputs
@@ -74,6 +97,7 @@ class ImageIndexCollectOutput(BaseInvocationOutput):
     title="Image Index Collect", 
     tags=["video", "collection", "image", "index", "frame", "collection"], 
     category="collections",
+    version="1.0.0",
 )
 class ImageIndexCollectInvocation(BaseInvocation):
     """ImageIndexCollect takes Image and Index then outputs it as an (index,image_name)array converted to json"""
@@ -118,7 +142,13 @@ class ImagesIndexToVideoInvocation(BaseInvocation):#, PILInvocationConfig):
         return ImagesIndexToVideoOutput()
  
  
-@invocation("GetTotalFramesInvocation", title="Get Total Frames", tags=["video", "frames", "count"], category="video")
+@invocation(
+    "GetTotalFramesInvocation", 
+    title="Get Total Frames", 
+    tags=["video", "frames", "count"], 
+    category="video",
+    version="1.0.0",
+)
 class GetTotalFramesInvocation(BaseInvocation):
     """Get the total number of frames in an MP4 video and provide it as output."""
     
@@ -137,7 +167,13 @@ class GetTotalFramesInvocation(BaseInvocation):
 
         return IntegerOutput(value=total_frames)
         
-@invocation("GetSourceFrameRateInvocation", title="Get Source Frame Rate", tags=["video", "framerate"], category="video")
+@invocation(
+    "GetSourceFrameRateInvocation", 
+    title="Get Source Frame Rate", 
+    tags=["video", "framerate"], 
+    category="video",
+    version="1.0.0",
+)
 class GetSourceFrameRateInvocation(BaseInvocation):
     """Get the source framerate of an MP4 video and provide it as output."""
     
