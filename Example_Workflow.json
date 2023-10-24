@@ -1,19 +1,39 @@
 {
-  "name": "2023-9-14 - 3.1.1 - 16x9 half framerate example",
+  "name": "2023 10 23 - basic anim workflow",
   "author": "Gille",
-  "description": "2023-9-14 - 3.1.1",
+  "description": "2023 10 23 - basic anim workflow",
   "version": "1.0.0",
   "contact": "Gille",
-  "tags": "remake because versions",
-  "notes": "2023-9-14 - 3.1.1",
+  "tags": "2023 10 23 - basic anim workflow",
+  "notes": "2023 10 23 - basic anim workflow",
   "exposedFields": [
     {
-      "nodeId": "99a86e5d-1998-437b-b56d-67154133bd41",
+      "nodeId": "262912d3-990c-4500-8067-d5e2b8b59b58",
+      "fieldName": "string_left"
+    },
+    {
+      "nodeId": "f38a2cab-02d6-4dba-af7f-f934aafc9f94",
       "fieldName": "value"
     },
     {
-      "nodeId": "afb00f03-af77-4755-856f-cc7819e6a2dc",
-      "fieldName": "video_out_path"
+      "nodeId": "c9e1fd6d-8b82-4818-a39f-2e7019c2fc14",
+      "fieldName": "string_left"
+    },
+    {
+      "nodeId": "93c2308e-3ec2-463e-b189-4c7deaa79f59",
+      "fieldName": "model"
+    },
+    {
+      "nodeId": "7defff83-eeb8-45f6-9a74-a0f2876b7a78",
+      "fieldName": "value"
+    },
+    {
+      "nodeId": "40e21c11-71c3-45ed-b594-dbe3df98cfa4",
+      "fieldName": "width"
+    },
+    {
+      "nodeId": "40e21c11-71c3-45ed-b594-dbe3df98cfa4",
+      "fieldName": "height"
     },
     {
       "nodeId": "cdfec1ba-52cc-4e10-9f28-d48081fb84a9",
@@ -22,6 +42,18 @@
     {
       "nodeId": "8574c4b6-0246-4565-8e43-12dc8af137e5",
       "fieldName": "prompt"
+    },
+    {
+      "nodeId": "be475098-5e21-4ece-90b7-2c9dd6652bb6",
+      "fieldName": "steps"
+    },
+    {
+      "nodeId": "be475098-5e21-4ece-90b7-2c9dd6652bb6",
+      "fieldName": "scheduler"
+    },
+    {
+      "nodeId": "5ea809b3-baad-4ca3-8d3f-61cd47bef8f4",
+      "fieldName": "tiled"
     }
   ],
   "meta": {
@@ -29,49 +61,50 @@
   },
   "nodes": [
     {
-      "id": "afb00f03-af77-4755-856f-cc7819e6a2dc",
+      "id": "c9e1fd6d-8b82-4818-a39f-2e7019c2fc14",
       "type": "invocation",
       "data": {
-        "id": "afb00f03-af77-4755-856f-cc7819e6a2dc",
-        "type": "image_index_to_video",
+        "id": "c9e1fd6d-8b82-4818-a39f-2e7019c2fc14",
+        "type": "string_join",
         "inputs": {
-          "image_index_collection": {
-            "id": "d7efedf7-8db2-4828-9373-ba7fe005d507",
-            "name": "image_index_collection",
-            "type": "ImageCollection",
-            "fieldKind": "input",
-            "label": "",
-            "value": []
-          },
-          "video_out_path": {
-            "id": "a8bee078-dd27-42e0-a45b-2eb54c3b26e8",
-            "name": "video_out_path",
+          "string_left": {
+            "id": "4ef7716b-8ae9-4080-b1ae-34a9f1b521d8",
+            "name": "string_left",
             "type": "string",
             "fieldKind": "input",
             "label": "",
-            "value": "F:\\AITools\\invokeai\\outputs\\video\\burn-notice-michael-weston_test.mp4"
+            "value": "F:\\AITools\\invokeai\\outputs\\video\\"
           },
-          "fps": {
-            "id": "cf4c821b-db24-459f-b730-412f678024d8",
-            "name": "fps",
-            "type": "integer",
+          "string_right": {
+            "id": "20f2a495-8b7b-481f-ba37-4748862bfee8",
+            "name": "string_right",
+            "type": "string",
             "fieldKind": "input",
             "label": "",
-            "value": 30
+            "value": ""
           }
         },
-        "outputs": {},
+        "outputs": {
+          "value": {
+            "id": "92a623b3-6347-41c3-80c9-2ed1c19b7729",
+            "name": "value",
+            "type": "string",
+            "fieldKind": "output"
+          }
+        },
         "label": "",
         "isOpen": true,
         "notes": "",
         "embedWorkflow": false,
-        "isIntermediate": true
+        "isIntermediate": true,
+        "useCache": true,
+        "version": "1.0.0"
       },
       "width": 320,
-      "height": 194,
+      "height": 414,
       "position": {
-        "x": 550,
-        "y": 900
+        "x": 175,
+        "y": 625
       }
     },
     {
@@ -102,261 +135,14 @@
         "notes": "",
         "embedWorkflow": false,
         "isIntermediate": true,
+        "useCache": true,
         "version": "1.0.0"
       },
       "width": 320,
-      "height": 80,
+      "height": 104,
       "position": {
-        "x": 550,
-        "y": 800
-      }
-    },
-    {
-      "id": "e1c28384-33e2-4144-a5ac-965636392c9b",
-      "type": "invocation",
-      "data": {
-        "id": "e1c28384-33e2-4144-a5ac-965636392c9b",
-        "type": "ImageIndexCollectInvocation",
-        "inputs": {
-          "index": {
-            "id": "8dda0aab-6b3f-42af-afb3-ac3067a0bb60",
-            "name": "index",
-            "type": "integer",
-            "fieldKind": "input",
-            "label": "",
-            "value": 0
-          },
-          "image": {
-            "id": "9fd5d4d9-b8f8-481a-a4eb-f964cba0f701",
-            "name": "image",
-            "type": "ImageField",
-            "fieldKind": "input",
-            "label": ""
-          }
-        },
-        "outputs": {
-          "image_index_collection": {
-            "id": "2bd053a8-1d55-44ac-81ff-6140fe58be8f",
-            "name": "image_index_collection",
-            "type": "string",
-            "fieldKind": "output"
-          }
-        },
-        "label": "",
-        "isOpen": true,
-        "notes": "",
-        "embedWorkflow": false,
-        "isIntermediate": true,
-        "version": "1.0.0"
-      },
-      "width": 320,
-      "height": 194,
-      "position": {
-        "x": 550,
-        "y": 525
-      }
-    },
-    {
-      "id": "42f4a121-d62d-49af-8bcf-087259c5d064",
-      "type": "invocation",
-      "data": {
-        "id": "42f4a121-d62d-49af-8bcf-087259c5d064",
-        "type": "l2i",
-        "inputs": {
-          "tiled": {
-            "id": "f98f9f22-e2d8-4ae0-b94d-e0595402a0ed",
-            "name": "tiled",
-            "type": "boolean",
-            "fieldKind": "input",
-            "label": "",
-            "value": true
-          },
-          "fp32": {
-            "id": "b0e00c2f-4fd5-45f4-b227-5e7e1b77341e",
-            "name": "fp32",
-            "type": "boolean",
-            "fieldKind": "input",
-            "label": "",
-            "value": false
-          },
-          "latents": {
-            "id": "881da55e-3694-4a02-a014-8784f3be8f3a",
-            "name": "latents",
-            "type": "LatentsField",
-            "fieldKind": "input",
-            "label": ""
-          },
-          "vae": {
-            "id": "2c095c35-d7c7-47b4-9e41-cf734287df5c",
-            "name": "vae",
-            "type": "VaeField",
-            "fieldKind": "input",
-            "label": ""
-          }
-        },
-        "outputs": {
-          "image": {
-            "id": "91025458-97b0-426e-aeaf-7dcbeb021e89",
-            "name": "image",
-            "type": "ImageField",
-            "fieldKind": "output"
-          },
-          "width": {
-            "id": "8d99bc19-a818-4f16-b155-0710188eac3c",
-            "name": "width",
-            "type": "integer",
-            "fieldKind": "output"
-          },
-          "height": {
-            "id": "8b68ec9e-623e-4d9a-9304-f96c1eecb072",
-            "name": "height",
-            "type": "integer",
-            "fieldKind": "output"
-          }
-        },
-        "label": "",
-        "isOpen": true,
-        "notes": "",
-        "embedWorkflow": true,
-        "isIntermediate": false,
-        "version": "1.0.0"
-      },
-      "width": 320,
-      "height": 266,
-      "position": {
-        "x": 75,
-        "y": 675
-      }
-    },
-    {
-      "id": "bc67ddb6-f6fa-4a00-895d-d59e16132d6f",
-      "type": "invocation",
-      "data": {
-        "id": "bc67ddb6-f6fa-4a00-895d-d59e16132d6f",
-        "type": "denoise_latents",
-        "inputs": {
-          "noise": {
-            "id": "875b4204-ed8e-460c-85aa-a236b265c6eb",
-            "name": "noise",
-            "type": "LatentsField",
-            "fieldKind": "input",
-            "label": ""
-          },
-          "steps": {
-            "id": "2cd677d7-8d63-4393-82ca-9ff7eb933718",
-            "name": "steps",
-            "type": "integer",
-            "fieldKind": "input",
-            "label": "",
-            "value": 10
-          },
-          "cfg_scale": {
-            "id": "ba1795f9-ad25-4ca6-94b3-2c9f7a78898b",
-            "name": "cfg_scale",
-            "type": "float",
-            "fieldKind": "input",
-            "label": "",
-            "value": 7.5
-          },
-          "denoising_start": {
-            "id": "b7dd33bc-7ddc-45f6-b8af-8b68f50956a6",
-            "name": "denoising_start",
-            "type": "float",
-            "fieldKind": "input",
-            "label": "",
-            "value": 0
-          },
-          "denoising_end": {
-            "id": "69ae8f8c-214d-41d3-9680-7ccc2abe59e1",
-            "name": "denoising_end",
-            "type": "float",
-            "fieldKind": "input",
-            "label": "",
-            "value": 1
-          },
-          "scheduler": {
-            "id": "79fa37e6-1818-4b15-a647-f2a12449418c",
-            "name": "scheduler",
-            "type": "Scheduler",
-            "fieldKind": "input",
-            "label": "",
-            "value": "euler_a"
-          },
-          "control": {
-            "id": "9dfd8153-de5f-41ad-9f99-cb0af32457a9",
-            "name": "control",
-            "type": "ControlPolymorphic",
-            "fieldKind": "input",
-            "label": ""
-          },
-          "latents": {
-            "id": "386b5c37-77fa-460f-bf18-68096d22352c",
-            "name": "latents",
-            "type": "LatentsField",
-            "fieldKind": "input",
-            "label": ""
-          },
-          "denoise_mask": {
-            "id": "ba9980ad-f234-4fae-80f0-496aef31bf47",
-            "name": "denoise_mask",
-            "type": "DenoiseMaskField",
-            "fieldKind": "input",
-            "label": ""
-          },
-          "positive_conditioning": {
-            "id": "5d69b7a6-118b-475e-a693-6a53a9cb6b90",
-            "name": "positive_conditioning",
-            "type": "ConditioningField",
-            "fieldKind": "input",
-            "label": ""
-          },
-          "negative_conditioning": {
-            "id": "73a27f92-1b63-4715-a60d-85716f540714",
-            "name": "negative_conditioning",
-            "type": "ConditioningField",
-            "fieldKind": "input",
-            "label": ""
-          },
-          "unet": {
-            "id": "bc1cc1c6-3ef9-4440-a874-ea618dde4588",
-            "name": "unet",
-            "type": "UNetField",
-            "fieldKind": "input",
-            "label": ""
-          }
-        },
-        "outputs": {
-          "latents": {
-            "id": "8f149d34-ab0a-4f8b-a816-eaeb887a16e3",
-            "name": "latents",
-            "type": "LatentsField",
-            "fieldKind": "output"
-          },
-          "width": {
-            "id": "e5ad39fc-c806-490a-8520-8bb7deedd82f",
-            "name": "width",
-            "type": "integer",
-            "fieldKind": "output"
-          },
-          "height": {
-            "id": "5b314c3b-9efe-4519-8c6e-d4be5b4db06f",
-            "name": "height",
-            "type": "integer",
-            "fieldKind": "output"
-          }
-        },
-        "label": "",
-        "isOpen": true,
-        "notes": "",
-        "embedWorkflow": false,
-        "isIntermediate": true,
-        "version": "1.0.0"
-      },
-      "width": 320,
-      "height": 558,
-      "position": {
-        "x": -300,
-        "y": 800
+        "x": 600,
+        "y": 425
       }
     },
     {
@@ -438,71 +224,14 @@
         "notes": "",
         "embedWorkflow": false,
         "isIntermediate": true,
+        "useCache": true,
         "version": "1.0.0"
       },
       "width": 320,
-      "height": 480,
+      "height": 483,
       "position": {
         "x": -300,
         "y": 250
-      }
-    },
-    {
-      "id": "dbe71a5c-948b-4df6-b983-c26c28ca3826",
-      "type": "invocation",
-      "data": {
-        "id": "dbe71a5c-948b-4df6-b983-c26c28ca3826",
-        "type": "LoadVideoFrameInvocation",
-        "inputs": {
-          "video_path": {
-            "id": "edb734fd-57e0-402c-b03b-a608cdc79748",
-            "name": "video_path",
-            "type": "string",
-            "fieldKind": "input",
-            "label": "",
-            "value": ""
-          },
-          "frame_number": {
-            "id": "d25124ef-d788-4449-8822-97c4244420c0",
-            "name": "frame_number",
-            "type": "integer",
-            "fieldKind": "input",
-            "label": "",
-            "value": 1
-          }
-        },
-        "outputs": {
-          "image": {
-            "id": "d97d20dd-fa48-45cb-9b33-2d653f39352e",
-            "name": "image",
-            "type": "ImageField",
-            "fieldKind": "output"
-          },
-          "width": {
-            "id": "c523a945-a91b-49a2-a81a-a895554e34dc",
-            "name": "width",
-            "type": "integer",
-            "fieldKind": "output"
-          },
-          "height": {
-            "id": "a8ec99e1-aa21-4285-8e37-f85d07dcde40",
-            "name": "height",
-            "type": "integer",
-            "fieldKind": "output"
-          }
-        },
-        "label": "",
-        "isOpen": true,
-        "notes": "",
-        "embedWorkflow": false,
-        "isIntermediate": true,
-        "version": "1.0.0"
-      },
-      "width": 320,
-      "height": 282,
-      "position": {
-        "x": -300,
-        "y": -75
       }
     },
     {
@@ -534,10 +263,11 @@
         "notes": "",
         "embedWorkflow": false,
         "isIntermediate": true,
+        "useCache": true,
         "version": "1.0.0"
       },
       "width": 320,
-      "height": 112,
+      "height": 104,
       "position": {
         "x": -300,
         "y": -200
@@ -588,127 +318,14 @@
         "notes": "",
         "embedWorkflow": false,
         "isIntermediate": true,
+        "useCache": true,
         "version": "1.0.0"
       },
       "width": 320,
-      "height": 251,
+      "height": 275,
       "position": {
-        "x": -775,
-        "y": 25
-      }
-    },
-    {
-      "id": "99a86e5d-1998-437b-b56d-67154133bd41",
-      "type": "invocation",
-      "data": {
-        "id": "99a86e5d-1998-437b-b56d-67154133bd41",
-        "type": "string",
-        "inputs": {
-          "value": {
-            "id": "c93d5def-0b1f-4b16-b76a-e4c6cb28ccbd",
-            "name": "value",
-            "type": "string",
-            "fieldKind": "input",
-            "label": "",
-            "value": "F:\\media\\burn-notice-michael-weston.mp4"
-          }
-        },
-        "outputs": {
-          "value": {
-            "id": "33db016d-f40d-4d6a-8aed-2886f53ba24b",
-            "name": "value",
-            "type": "string",
-            "fieldKind": "output"
-          }
-        },
-        "label": "",
-        "isOpen": true,
-        "notes": "",
-        "embedWorkflow": false,
-        "isIntermediate": true,
-        "version": "1.0.0"
-      },
-      "width": 320,
-      "height": 235,
-      "position": {
-        "x": -1225,
-        "y": -175
-      }
-    },
-    {
-      "id": "cc42122f-0d15-41b6-bb04-e08be6de1437",
-      "type": "invocation",
-      "data": {
-        "id": "cc42122f-0d15-41b6-bb04-e08be6de1437",
-        "type": "GetTotalFramesInvocation",
-        "inputs": {
-          "video_path": {
-            "id": "064a6e5f-3749-4c80-aba8-3c13804cf511",
-            "name": "video_path",
-            "type": "string",
-            "fieldKind": "input",
-            "label": "",
-            "value": ""
-          }
-        },
-        "outputs": {
-          "value": {
-            "id": "9d8f3f0f-9d96-4d2f-a9e0-5c668a198f55",
-            "name": "value",
-            "type": "integer",
-            "fieldKind": "output"
-          }
-        },
-        "label": "",
-        "isOpen": true,
-        "notes": "",
-        "embedWorkflow": false,
-        "isIntermediate": true,
-        "version": "1.0.0"
-      },
-      "width": 320,
-      "height": 137,
-      "position": {
-        "x": -1225,
-        "y": 75
-      }
-    },
-    {
-      "id": "6381ae00-ca61-44c9-bfa5-ec2fbde086df",
-      "type": "invocation",
-      "data": {
-        "id": "6381ae00-ca61-44c9-bfa5-ec2fbde086df",
-        "type": "GetSourceFrameRateInvocation",
-        "inputs": {
-          "video_path": {
-            "id": "e5a960bf-584d-48a6-b931-7e8c7ecb4f27",
-            "name": "video_path",
-            "type": "string",
-            "fieldKind": "input",
-            "label": "",
-            "value": ""
-          }
-        },
-        "outputs": {
-          "value": {
-            "id": "c4f86f04-8ed3-45a0-b255-6d182f5377fb",
-            "name": "value",
-            "type": "integer",
-            "fieldKind": "output"
-          }
-        },
-        "label": "",
-        "isOpen": true,
-        "notes": "",
-        "embedWorkflow": false,
-        "isIntermediate": true,
-        "version": "1.0.0"
-      },
-      "width": 320,
-      "height": 137,
-      "position": {
-        "x": -1225,
-        "y": 225
+        "x": -725,
+        "y": -75
       }
     },
     {
@@ -748,13 +365,14 @@
         "notes": "",
         "embedWorkflow": false,
         "isIntermediate": true,
+        "useCache": true,
         "version": "1.0.0"
       },
       "width": 320,
-      "height": 194,
+      "height": 218,
       "position": {
-        "x": -1225,
-        "y": 575
+        "x": -1125,
+        "y": 525
       }
     },
     {
@@ -802,13 +420,14 @@
         "notes": "",
         "embedWorkflow": false,
         "isIntermediate": true,
+        "useCache": true,
         "version": "1.0.0"
       },
       "width": 320,
-      "height": 202,
+      "height": 226,
       "position": {
-        "x": -1225,
-        "y": 825
+        "x": -1150,
+        "y": 925
       }
     },
     {
@@ -824,7 +443,7 @@
             "type": "string",
             "fieldKind": "input",
             "label": "",
-            "value": "Cyberpunk neon wireframe alien, Michael Weston"
+            "value": ""
           },
           "clip": {
             "id": "76676fc9-9a98-4737-99a0-1e139fd3df8c",
@@ -847,12 +466,13 @@
         "notes": "",
         "embedWorkflow": false,
         "isIntermediate": true,
+        "useCache": true,
         "version": "1.0.0"
       },
       "width": 320,
-      "height": 235,
+      "height": 259,
       "position": {
-        "x": -750,
+        "x": -700,
         "y": 775
       }
     },
@@ -869,7 +489,7 @@
             "type": "string",
             "fieldKind": "input",
             "label": "",
-            "value": "nudity"
+            "value": "nudity, <GanrabeBinEsque3v1-8000-neg>"
           },
           "clip": {
             "id": "98fd34bc-c2a7-4ef6-8520-b441f205e7f4",
@@ -887,18 +507,19 @@
             "fieldKind": "output"
           }
         },
-        "label": "",
+        "label": "Prompt",
         "isOpen": true,
         "notes": "",
         "embedWorkflow": false,
         "isIntermediate": true,
+        "useCache": true,
         "version": "1.0.0"
       },
       "width": 320,
-      "height": 235,
+      "height": 259,
       "position": {
-        "x": -750,
-        "y": 1025
+        "x": -700,
+        "y": 1075
       }
     },
     {
@@ -966,13 +587,14 @@
         "notes": "",
         "embedWorkflow": false,
         "isIntermediate": true,
+        "useCache": true,
         "version": "1.0.0"
       },
       "width": 320,
-      "height": 364,
+      "height": 388,
       "position": {
-        "x": -750,
-        "y": 375
+        "x": -725,
+        "y": 225
       }
     },
     {
@@ -1004,151 +626,614 @@
         "notes": "",
         "embedWorkflow": false,
         "isIntermediate": true,
+        "useCache": true,
         "version": "1.0.0"
       },
       "width": 320,
-      "height": 137,
+      "height": 161,
       "position": {
-        "x": -1225,
-        "y": 400
+        "x": -1125,
+        "y": 350
+      }
+    },
+    {
+      "id": "2a72b402-0c78-4749-8fe5-78723dde1908",
+      "type": "invocation",
+      "data": {
+        "id": "2a72b402-0c78-4749-8fe5-78723dde1908",
+        "type": "rand_int",
+        "inputs": {
+          "low": {
+            "id": "ca80c4ae-f542-4ed0-b612-92d6c1cd3919",
+            "name": "low",
+            "type": "integer",
+            "fieldKind": "input",
+            "label": "",
+            "value": 0
+          },
+          "high": {
+            "id": "7b87926d-15bf-4c65-99a7-8758a3d37b77",
+            "name": "high",
+            "type": "integer",
+            "fieldKind": "input",
+            "label": "",
+            "value": 2147483647
+          }
+        },
+        "outputs": {
+          "value": {
+            "id": "7a3443fd-21f6-409f-82a3-2d1ee4c8fb03",
+            "name": "value",
+            "type": "integer",
+            "fieldKind": "output"
+          }
+        },
+        "label": "",
+        "isOpen": false,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "useCache": false,
+        "version": "1.0.0"
+      },
+      "width": 320,
+      "height": 32,
+      "position": {
+        "x": -725,
+        "y": 650
+      }
+    },
+    {
+      "id": "be475098-5e21-4ece-90b7-2c9dd6652bb6",
+      "type": "invocation",
+      "data": {
+        "id": "be475098-5e21-4ece-90b7-2c9dd6652bb6",
+        "type": "denoise_latents",
+        "inputs": {
+          "positive_conditioning": {
+            "id": "a0acc319-38d6-4534-895e-e5b4319c4966",
+            "name": "positive_conditioning",
+            "type": "ConditioningField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "negative_conditioning": {
+            "id": "c74f7aa7-3eed-47bb-8a2b-c6344b78939a",
+            "name": "negative_conditioning",
+            "type": "ConditioningField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "noise": {
+            "id": "1790f0c7-2ff4-48f5-ae8a-0ad03b605a07",
+            "name": "noise",
+            "type": "LatentsField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "steps": {
+            "id": "24c6d445-65ff-4f5e-a090-5ca38d7925b7",
+            "name": "steps",
+            "type": "integer",
+            "fieldKind": "input",
+            "label": "",
+            "value": 10
+          },
+          "cfg_scale": {
+            "id": "c9774f25-14ce-4f5b-a2d4-0021195836f2",
+            "name": "cfg_scale",
+            "type": "FloatPolymorphic",
+            "fieldKind": "input",
+            "label": "",
+            "value": 7.5
+          },
+          "denoising_start": {
+            "id": "e8d968d7-38d8-406a-be90-1837171d8d9f",
+            "name": "denoising_start",
+            "type": "float",
+            "fieldKind": "input",
+            "label": "",
+            "value": 0
+          },
+          "denoising_end": {
+            "id": "bbaf2825-9cb4-4ef0-aabc-46ba3d9c9787",
+            "name": "denoising_end",
+            "type": "float",
+            "fieldKind": "input",
+            "label": "",
+            "value": 1
+          },
+          "scheduler": {
+            "id": "d25778f8-1d0b-4b1a-97e1-43606d038671",
+            "name": "scheduler",
+            "type": "Scheduler",
+            "fieldKind": "input",
+            "label": "",
+            "value": "euler"
+          },
+          "unet": {
+            "id": "4e45dc48-a1d1-4762-a10c-12b51c9af6d1",
+            "name": "unet",
+            "type": "UNetField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "control": {
+            "id": "d4511591-8d38-4a4f-acb3-58403def9884",
+            "name": "control",
+            "type": "ControlPolymorphic",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "ip_adapter": {
+            "id": "5dbc2f98-fc21-4cb1-b8e0-7f021ce13b5e",
+            "name": "ip_adapter",
+            "type": "IPAdapterPolymorphic",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "t2i_adapter": {
+            "id": "5305bade-f7d4-4154-8f91-363b45f0600a",
+            "name": "t2i_adapter",
+            "type": "T2IAdapterPolymorphic",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "latents": {
+            "id": "32d98e23-21c6-4134-b41a-b96510c25435",
+            "name": "latents",
+            "type": "LatentsField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "denoise_mask": {
+            "id": "31343199-3d1e-4f95-84e7-ef5e8b616419",
+            "name": "denoise_mask",
+            "type": "DenoiseMaskField",
+            "fieldKind": "input",
+            "label": ""
+          }
+        },
+        "outputs": {
+          "latents": {
+            "id": "fa70240d-0b78-4f8e-91b9-fb8c12c4c0c7",
+            "name": "latents",
+            "type": "LatentsField",
+            "fieldKind": "output"
+          },
+          "width": {
+            "id": "ffebdd92-81d0-4d2e-8a6a-d376603a6f14",
+            "name": "width",
+            "type": "integer",
+            "fieldKind": "output"
+          },
+          "height": {
+            "id": "abbcf8ca-530f-4d17-9066-63210994d3af",
+            "name": "height",
+            "type": "integer",
+            "fieldKind": "output"
+          }
+        },
+        "label": "",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "useCache": true,
+        "version": "1.4.0"
+      },
+      "width": 320,
+      "height": 646,
+      "position": {
+        "x": -300,
+        "y": 775
+      }
+    },
+    {
+      "id": "262912d3-990c-4500-8067-d5e2b8b59b58",
+      "type": "invocation",
+      "data": {
+        "id": "262912d3-990c-4500-8067-d5e2b8b59b58",
+        "type": "string_join",
+        "inputs": {
+          "string_left": {
+            "id": "4ef7716b-8ae9-4080-b1ae-34a9f1b521d8",
+            "name": "string_left",
+            "type": "string",
+            "fieldKind": "input",
+            "label": "",
+            "value": "F:\\media\\"
+          },
+          "string_right": {
+            "id": "20f2a495-8b7b-481f-ba37-4748862bfee8",
+            "name": "string_right",
+            "type": "string",
+            "fieldKind": "input",
+            "label": "",
+            "value": ""
+          }
+        },
+        "outputs": {
+          "value": {
+            "id": "92a623b3-6347-41c3-80c9-2ed1c19b7729",
+            "name": "value",
+            "type": "string",
+            "fieldKind": "output"
+          }
+        },
+        "label": "",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "useCache": true,
+        "version": "1.0.0"
+      },
+      "width": 320,
+      "height": 414,
+      "position": {
+        "x": -1600,
+        "y": 25
+      }
+    },
+    {
+      "id": "f38a2cab-02d6-4dba-af7f-f934aafc9f94",
+      "type": "invocation",
+      "data": {
+        "id": "f38a2cab-02d6-4dba-af7f-f934aafc9f94",
+        "type": "string",
+        "inputs": {
+          "value": {
+            "id": "bc69455e-55cd-4e74-bf76-4b5586af83aa",
+            "name": "value",
+            "type": "string",
+            "fieldKind": "input",
+            "label": "",
+            "value": "right-yeah-right.mp4"
+          }
+        },
+        "outputs": {
+          "value": {
+            "id": "9118a953-d8a3-456e-bf99-a9a900fc0aa6",
+            "name": "value",
+            "type": "string",
+            "fieldKind": "output"
+          }
+        },
+        "label": "",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "useCache": true,
+        "version": "1.0.0"
+      },
+      "width": 320,
+      "height": 259,
+      "position": {
+        "x": -1950,
+        "y": 0
+      }
+    },
+    {
+      "id": "e64185af-9898-4c4b-aacd-497c6df77e29",
+      "type": "invocation",
+      "data": {
+        "id": "e64185af-9898-4c4b-aacd-497c6df77e29",
+        "type": "LoadVideoFrameInvocation",
+        "inputs": {
+          "video_path": {
+            "id": "3546182e-02d9-45de-ac31-cb45f327797b",
+            "name": "video_path",
+            "type": "string",
+            "fieldKind": "input",
+            "label": "",
+            "value": ""
+          },
+          "frame_number": {
+            "id": "ec418631-5d10-40a7-b538-7dc0de4a1aff",
+            "name": "frame_number",
+            "type": "integer",
+            "fieldKind": "input",
+            "label": "",
+            "value": 1
+          }
+        },
+        "outputs": {
+          "image": {
+            "id": "c5260920-4db4-49c6-a601-51b6725b183b",
+            "name": "image",
+            "type": "ImageField",
+            "fieldKind": "output"
+          },
+          "width": {
+            "id": "19aabdec-2aeb-4703-b0ba-6ef03e4e953c",
+            "name": "width",
+            "type": "integer",
+            "fieldKind": "output"
+          },
+          "height": {
+            "id": "afd404f3-2491-40c2-abfe-8a9c4574641d",
+            "name": "height",
+            "type": "integer",
+            "fieldKind": "output"
+          }
+        },
+        "label": "",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "useCache": false,
+        "version": "1.0.1"
+      },
+      "width": 320,
+      "height": 282,
+      "position": {
+        "x": -300,
+        "y": -50
+      }
+    },
+    {
+      "id": "5ea809b3-baad-4ca3-8d3f-61cd47bef8f4",
+      "type": "invocation",
+      "data": {
+        "id": "5ea809b3-baad-4ca3-8d3f-61cd47bef8f4",
+        "type": "l2i",
+        "inputs": {
+          "metadata": {
+            "id": "f1c8f4d8-58c9-4ed8-94f7-60c3a2c48ed5",
+            "name": "metadata",
+            "type": "MetadataField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "latents": {
+            "id": "445a203f-937a-44b5-8289-b34c1d2f13cb",
+            "name": "latents",
+            "type": "LatentsField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "vae": {
+            "id": "83ad6375-b780-4783-9084-c7edcecdddfe",
+            "name": "vae",
+            "type": "VaeField",
+            "fieldKind": "input",
+            "label": ""
+          },
+          "tiled": {
+            "id": "c354a5e6-ac26-4681-9eb4-7448afb3173f",
+            "name": "tiled",
+            "type": "boolean",
+            "fieldKind": "input",
+            "label": "",
+            "value": true
+          },
+          "fp32": {
+            "id": "c04b2ee9-c997-492c-bc7d-fbd7eed2535c",
+            "name": "fp32",
+            "type": "boolean",
+            "fieldKind": "input",
+            "label": "",
+            "value": false
+          }
+        },
+        "outputs": {
+          "image": {
+            "id": "9a929079-d0c0-425d-94a4-2ef584c0ebb4",
+            "name": "image",
+            "type": "ImageField",
+            "fieldKind": "output"
+          },
+          "width": {
+            "id": "d8458afc-bb5f-41d3-b5f6-f439783a86d8",
+            "name": "width",
+            "type": "integer",
+            "fieldKind": "output"
+          },
+          "height": {
+            "id": "46ed5491-1d7e-4d01-8427-1b54d16ef712",
+            "name": "height",
+            "type": "integer",
+            "fieldKind": "output"
+          }
+        },
+        "label": "",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "useCache": true,
+        "version": "1.0.0"
+      },
+      "width": 320,
+      "height": 266,
+      "position": {
+        "x": 175,
+        "y": 275
+      }
+    },
+    {
+      "id": "b8db7e5b-efb6-4a7a-9e7b-52c19cde3522",
+      "type": "invocation",
+      "data": {
+        "id": "b8db7e5b-efb6-4a7a-9e7b-52c19cde3522",
+        "type": "ImageIndexCollectInvocation",
+        "inputs": {
+          "index": {
+            "id": "65e1d55f-2172-4c90-b9bc-4b502c0704f4",
+            "name": "index",
+            "type": "integer",
+            "fieldKind": "input",
+            "label": "",
+            "value": 0
+          },
+          "image": {
+            "id": "eb0481e7-4b05-4ba9-b976-603f9b0dddb9",
+            "name": "image",
+            "type": "ImageField",
+            "fieldKind": "input",
+            "label": ""
+          }
+        },
+        "outputs": {
+          "image_index_collection": {
+            "id": "0baecfe5-fcd5-4ffe-aec4-f619a2f01fd1",
+            "name": "image_index_collection",
+            "type": "string",
+            "fieldKind": "output"
+          }
+        },
+        "label": "",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "useCache": true,
+        "version": "1.0.1"
+      },
+      "width": 320,
+      "height": 218,
+      "position": {
+        "x": 600,
+        "y": 125
+      }
+    },
+    {
+      "id": "900ec48b-8feb-4c18-ac4b-03557850c3be",
+      "type": "invocation",
+      "data": {
+        "id": "900ec48b-8feb-4c18-ac4b-03557850c3be",
+        "type": "ImagesIndexToVideoOutput",
+        "inputs": {
+          "image_index_collection": {
+            "id": "7c1adbb8-81e8-4095-b57e-af125904eea4",
+            "name": "image_index_collection",
+            "type": "ImageCollection",
+            "fieldKind": "input",
+            "label": "",
+            "value": []
+          },
+          "video_out_path": {
+            "id": "de8676d4-8138-46c7-842f-9daff73dbd12",
+            "name": "video_out_path",
+            "type": "string",
+            "fieldKind": "input",
+            "label": "",
+            "value": ""
+          },
+          "fps": {
+            "id": "bb54b7b0-60ee-453c-96aa-1ed87d014dc8",
+            "name": "fps",
+            "type": "integer",
+            "fieldKind": "input",
+            "label": "",
+            "value": 30
+          }
+        },
+        "outputs": {},
+        "label": "",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "useCache": true,
+        "version": "1.0.1"
+      },
+      "width": 320,
+      "height": 218,
+      "position": {
+        "x": 600,
+        "y": 575
+      }
+    },
+    {
+      "id": "03702ca1-e593-4a90-9934-9fee99b4a12c",
+      "type": "invocation",
+      "data": {
+        "id": "03702ca1-e593-4a90-9934-9fee99b4a12c",
+        "type": "GetTotalFramesInvocation",
+        "inputs": {
+          "video_path": {
+            "id": "695f0169-12fe-412f-9f27-f79089e39340",
+            "name": "video_path",
+            "type": "string",
+            "fieldKind": "input",
+            "label": "",
+            "value": ""
+          }
+        },
+        "outputs": {
+          "value": {
+            "id": "9d28675e-5ef9-41fb-824c-3f589846dbac",
+            "name": "value",
+            "type": "integer",
+            "fieldKind": "output"
+          }
+        },
+        "label": "",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "useCache": true,
+        "version": "1.0.1"
+      },
+      "width": 320,
+      "height": 161,
+      "position": {
+        "x": -1150,
+        "y": -75
+      }
+    },
+    {
+      "id": "42963149-cff4-430f-8008-cbd4cf037fd0",
+      "type": "invocation",
+      "data": {
+        "id": "42963149-cff4-430f-8008-cbd4cf037fd0",
+        "type": "GetSourceFrameRateInvocation",
+        "inputs": {
+          "video_path": {
+            "id": "3b2a047d-8b6e-4c00-806d-5c2ed66c3998",
+            "name": "video_path",
+            "type": "string",
+            "fieldKind": "input",
+            "label": "",
+            "value": ""
+          }
+        },
+        "outputs": {
+          "value": {
+            "id": "31baa6f1-29e3-4bdd-97ef-9dc8794fce98",
+            "name": "value",
+            "type": "integer",
+            "fieldKind": "output"
+          }
+        },
+        "label": "",
+        "isOpen": true,
+        "notes": "",
+        "embedWorkflow": false,
+        "isIntermediate": true,
+        "useCache": true,
+        "version": "1.0.1"
+      },
+      "width": 320,
+      "height": 161,
+      "position": {
+        "x": -1150,
+        "y": 125
       }
     }
   ],
   "edges": [
-    {
-      "source": "99a86e5d-1998-437b-b56d-67154133bd41",
-      "sourceHandle": "value",
-      "target": "cc42122f-0d15-41b6-bb04-e08be6de1437",
-      "targetHandle": "video_path",
-      "id": "reactflow__edge-99a86e5d-1998-437b-b56d-67154133bd41value-cc42122f-0d15-41b6-bb04-e08be6de1437video_path",
-      "type": "default"
-    },
-    {
-      "source": "99a86e5d-1998-437b-b56d-67154133bd41",
-      "sourceHandle": "value",
-      "target": "6381ae00-ca61-44c9-bfa5-ec2fbde086df",
-      "targetHandle": "video_path",
-      "id": "reactflow__edge-99a86e5d-1998-437b-b56d-67154133bd41value-6381ae00-ca61-44c9-bfa5-ec2fbde086dfvideo_path",
-      "type": "default"
-    },
-    {
-      "source": "99a86e5d-1998-437b-b56d-67154133bd41",
-      "sourceHandle": "value",
-      "target": "dbe71a5c-948b-4df6-b983-c26c28ca3826",
-      "targetHandle": "video_path",
-      "id": "reactflow__edge-99a86e5d-1998-437b-b56d-67154133bd41value-dbe71a5c-948b-4df6-b983-c26c28ca3826video_path",
-      "type": "default"
-    },
-    {
-      "source": "cc42122f-0d15-41b6-bb04-e08be6de1437",
-      "sourceHandle": "value",
-      "target": "5a5871a0-4625-4362-a3b8-c9681af02411",
-      "targetHandle": "stop",
-      "id": "reactflow__edge-cc42122f-0d15-41b6-bb04-e08be6de1437value-5a5871a0-4625-4362-a3b8-c9681af02411stop",
-      "type": "default"
-    },
-    {
-      "source": "6381ae00-ca61-44c9-bfa5-ec2fbde086df",
-      "sourceHandle": "value",
-      "target": "a6313543-4447-4b0b-8014-9deff0dd6c12",
-      "targetHandle": "a",
-      "id": "reactflow__edge-6381ae00-ca61-44c9-bfa5-ec2fbde086dfvalue-a6313543-4447-4b0b-8014-9deff0dd6c12a",
-      "type": "default"
-    },
-    {
-      "source": "a6313543-4447-4b0b-8014-9deff0dd6c12",
-      "sourceHandle": "value",
-      "target": "afb00f03-af77-4755-856f-cc7819e6a2dc",
-      "targetHandle": "fps",
-      "id": "reactflow__edge-a6313543-4447-4b0b-8014-9deff0dd6c12value-afb00f03-af77-4755-856f-cc7819e6a2dcfps",
-      "type": "default"
-    },
-    {
-      "source": "019d8ff8-0008-4c75-b46d-c8224bba42c3",
-      "sourceHandle": "collection",
-      "target": "afb00f03-af77-4755-856f-cc7819e6a2dc",
-      "targetHandle": "image_index_collection",
-      "id": "reactflow__edge-019d8ff8-0008-4c75-b46d-c8224bba42c3collection-afb00f03-af77-4755-856f-cc7819e6a2dcimage_index_collection",
-      "type": "default"
-    },
-    {
-      "source": "e1c28384-33e2-4144-a5ac-965636392c9b",
-      "sourceHandle": "image_index_collection",
-      "target": "019d8ff8-0008-4c75-b46d-c8224bba42c3",
-      "targetHandle": "item",
-      "id": "reactflow__edge-e1c28384-33e2-4144-a5ac-965636392c9bimage_index_collection-019d8ff8-0008-4c75-b46d-c8224bba42c3item",
-      "type": "default"
-    },
-    {
-      "source": "42f4a121-d62d-49af-8bcf-087259c5d064",
-      "sourceHandle": "image",
-      "target": "e1c28384-33e2-4144-a5ac-965636392c9b",
-      "targetHandle": "image",
-      "id": "reactflow__edge-42f4a121-d62d-49af-8bcf-087259c5d064image-e1c28384-33e2-4144-a5ac-965636392c9bimage",
-      "type": "default"
-    },
     {
       "source": "5a5871a0-4625-4362-a3b8-c9681af02411",
       "sourceHandle": "collection",
       "target": "ce4efb63-5b85-4a04-961c-7459df0c4906",
       "targetHandle": "collection",
       "id": "reactflow__edge-5a5871a0-4625-4362-a3b8-c9681af02411collection-ce4efb63-5b85-4a04-961c-7459df0c4906collection",
-      "type": "default"
-    },
-    {
-      "source": "bc67ddb6-f6fa-4a00-895d-d59e16132d6f",
-      "sourceHandle": "latents",
-      "target": "42f4a121-d62d-49af-8bcf-087259c5d064",
-      "targetHandle": "latents",
-      "id": "reactflow__edge-bc67ddb6-f6fa-4a00-895d-d59e16132d6flatents-42f4a121-d62d-49af-8bcf-087259c5d064latents",
-      "type": "default"
-    },
-    {
-      "source": "93c2308e-3ec2-463e-b189-4c7deaa79f59",
-      "sourceHandle": "vae",
-      "target": "42f4a121-d62d-49af-8bcf-087259c5d064",
-      "targetHandle": "vae",
-      "id": "reactflow__edge-93c2308e-3ec2-463e-b189-4c7deaa79f59vae-42f4a121-d62d-49af-8bcf-087259c5d064vae",
-      "type": "default"
-    },
-    {
-      "source": "40e21c11-71c3-45ed-b594-dbe3df98cfa4",
-      "sourceHandle": "noise",
-      "target": "bc67ddb6-f6fa-4a00-895d-d59e16132d6f",
-      "targetHandle": "noise",
-      "id": "reactflow__edge-40e21c11-71c3-45ed-b594-dbe3df98cfa4noise-bc67ddb6-f6fa-4a00-895d-d59e16132d6fnoise",
-      "type": "default"
-    },
-    {
-      "source": "dbe71a5c-948b-4df6-b983-c26c28ca3826",
-      "sourceHandle": "image",
-      "target": "7a7824c4-fc46-4df7-b564-ee4172f3c985",
-      "targetHandle": "image",
-      "id": "reactflow__edge-dbe71a5c-948b-4df6-b983-c26c28ca3826image-7a7824c4-fc46-4df7-b564-ee4172f3c985image",
-      "type": "default"
-    },
-    {
-      "source": "7a7824c4-fc46-4df7-b564-ee4172f3c985",
-      "sourceHandle": "control",
-      "target": "bc67ddb6-f6fa-4a00-895d-d59e16132d6f",
-      "targetHandle": "control",
-      "id": "reactflow__edge-7a7824c4-fc46-4df7-b564-ee4172f3c985control-bc67ddb6-f6fa-4a00-895d-d59e16132d6fcontrol",
-      "type": "default"
-    },
-    {
-      "source": "cdfec1ba-52cc-4e10-9f28-d48081fb84a9",
-      "sourceHandle": "conditioning",
-      "target": "bc67ddb6-f6fa-4a00-895d-d59e16132d6f",
-      "targetHandle": "positive_conditioning",
-      "id": "reactflow__edge-cdfec1ba-52cc-4e10-9f28-d48081fb84a9conditioning-bc67ddb6-f6fa-4a00-895d-d59e16132d6fpositive_conditioning",
-      "type": "default"
-    },
-    {
-      "source": "8574c4b6-0246-4565-8e43-12dc8af137e5",
-      "sourceHandle": "conditioning",
-      "target": "bc67ddb6-f6fa-4a00-895d-d59e16132d6f",
-      "targetHandle": "negative_conditioning",
-      "id": "reactflow__edge-8574c4b6-0246-4565-8e43-12dc8af137e5conditioning-bc67ddb6-f6fa-4a00-895d-d59e16132d6fnegative_conditioning",
       "type": "default"
     },
     {
@@ -1168,14 +1253,6 @@
       "type": "default"
     },
     {
-      "source": "93c2308e-3ec2-463e-b189-4c7deaa79f59",
-      "sourceHandle": "unet",
-      "target": "bc67ddb6-f6fa-4a00-895d-d59e16132d6f",
-      "targetHandle": "unet",
-      "id": "reactflow__edge-93c2308e-3ec2-463e-b189-4c7deaa79f59unet-bc67ddb6-f6fa-4a00-895d-d59e16132d6funet",
-      "type": "default"
-    },
-    {
       "source": "7defff83-eeb8-45f6-9a74-a0f2876b7a78",
       "sourceHandle": "value",
       "target": "a6313543-4447-4b0b-8014-9deff0dd6c12",
@@ -1192,19 +1269,187 @@
       "type": "default"
     },
     {
-      "source": "ce4efb63-5b85-4a04-961c-7459df0c4906",
-      "sourceHandle": "item",
-      "target": "e1c28384-33e2-4144-a5ac-965636392c9b",
-      "targetHandle": "index",
-      "id": "reactflow__edge-ce4efb63-5b85-4a04-961c-7459df0c4906item-e1c28384-33e2-4144-a5ac-965636392c9bindex",
+      "source": "2a72b402-0c78-4749-8fe5-78723dde1908",
+      "sourceHandle": "value",
+      "target": "40e21c11-71c3-45ed-b594-dbe3df98cfa4",
+      "targetHandle": "seed",
+      "id": "reactflow__edge-2a72b402-0c78-4749-8fe5-78723dde1908value-40e21c11-71c3-45ed-b594-dbe3df98cfa4seed",
+      "type": "default"
+    },
+    {
+      "source": "7a7824c4-fc46-4df7-b564-ee4172f3c985",
+      "sourceHandle": "control",
+      "target": "be475098-5e21-4ece-90b7-2c9dd6652bb6",
+      "targetHandle": "control",
+      "id": "reactflow__edge-7a7824c4-fc46-4df7-b564-ee4172f3c985control-be475098-5e21-4ece-90b7-2c9dd6652bb6control",
+      "type": "default"
+    },
+    {
+      "source": "40e21c11-71c3-45ed-b594-dbe3df98cfa4",
+      "sourceHandle": "noise",
+      "target": "be475098-5e21-4ece-90b7-2c9dd6652bb6",
+      "targetHandle": "noise",
+      "id": "reactflow__edge-40e21c11-71c3-45ed-b594-dbe3df98cfa4noise-be475098-5e21-4ece-90b7-2c9dd6652bb6noise",
+      "type": "default"
+    },
+    {
+      "source": "cdfec1ba-52cc-4e10-9f28-d48081fb84a9",
+      "sourceHandle": "conditioning",
+      "target": "be475098-5e21-4ece-90b7-2c9dd6652bb6",
+      "targetHandle": "positive_conditioning",
+      "id": "reactflow__edge-cdfec1ba-52cc-4e10-9f28-d48081fb84a9conditioning-be475098-5e21-4ece-90b7-2c9dd6652bb6positive_conditioning",
+      "type": "default"
+    },
+    {
+      "source": "8574c4b6-0246-4565-8e43-12dc8af137e5",
+      "sourceHandle": "conditioning",
+      "target": "be475098-5e21-4ece-90b7-2c9dd6652bb6",
+      "targetHandle": "negative_conditioning",
+      "id": "reactflow__edge-8574c4b6-0246-4565-8e43-12dc8af137e5conditioning-be475098-5e21-4ece-90b7-2c9dd6652bb6negative_conditioning",
+      "type": "default"
+    },
+    {
+      "source": "93c2308e-3ec2-463e-b189-4c7deaa79f59",
+      "sourceHandle": "unet",
+      "target": "be475098-5e21-4ece-90b7-2c9dd6652bb6",
+      "targetHandle": "unet",
+      "id": "reactflow__edge-93c2308e-3ec2-463e-b189-4c7deaa79f59unet-be475098-5e21-4ece-90b7-2c9dd6652bb6unet",
+      "type": "default"
+    },
+    {
+      "source": "f38a2cab-02d6-4dba-af7f-f934aafc9f94",
+      "sourceHandle": "value",
+      "target": "262912d3-990c-4500-8067-d5e2b8b59b58",
+      "targetHandle": "string_right",
+      "id": "reactflow__edge-f38a2cab-02d6-4dba-af7f-f934aafc9f94value-262912d3-990c-4500-8067-d5e2b8b59b58string_right",
+      "type": "default"
+    },
+    {
+      "source": "f38a2cab-02d6-4dba-af7f-f934aafc9f94",
+      "sourceHandle": "value",
+      "target": "c9e1fd6d-8b82-4818-a39f-2e7019c2fc14",
+      "targetHandle": "string_right",
+      "id": "reactflow__edge-f38a2cab-02d6-4dba-af7f-f934aafc9f94value-c9e1fd6d-8b82-4818-a39f-2e7019c2fc14string_right",
+      "type": "default"
+    },
+    {
+      "source": "e64185af-9898-4c4b-aacd-497c6df77e29",
+      "sourceHandle": "image",
+      "target": "7a7824c4-fc46-4df7-b564-ee4172f3c985",
+      "targetHandle": "image",
+      "id": "reactflow__edge-e64185af-9898-4c4b-aacd-497c6df77e29image-7a7824c4-fc46-4df7-b564-ee4172f3c985image",
+      "type": "default"
+    },
+    {
+      "source": "be475098-5e21-4ece-90b7-2c9dd6652bb6",
+      "sourceHandle": "latents",
+      "target": "5ea809b3-baad-4ca3-8d3f-61cd47bef8f4",
+      "targetHandle": "latents",
+      "id": "reactflow__edge-be475098-5e21-4ece-90b7-2c9dd6652bb6latents-5ea809b3-baad-4ca3-8d3f-61cd47bef8f4latents",
+      "type": "default"
+    },
+    {
+      "source": "93c2308e-3ec2-463e-b189-4c7deaa79f59",
+      "sourceHandle": "vae",
+      "target": "5ea809b3-baad-4ca3-8d3f-61cd47bef8f4",
+      "targetHandle": "vae",
+      "id": "reactflow__edge-93c2308e-3ec2-463e-b189-4c7deaa79f59vae-5ea809b3-baad-4ca3-8d3f-61cd47bef8f4vae",
+      "type": "default"
+    },
+    {
+      "source": "262912d3-990c-4500-8067-d5e2b8b59b58",
+      "sourceHandle": "value",
+      "target": "e64185af-9898-4c4b-aacd-497c6df77e29",
+      "targetHandle": "video_path",
+      "id": "reactflow__edge-262912d3-990c-4500-8067-d5e2b8b59b58value-e64185af-9898-4c4b-aacd-497c6df77e29video_path",
       "type": "default"
     },
     {
       "source": "ce4efb63-5b85-4a04-961c-7459df0c4906",
       "sourceHandle": "item",
-      "target": "dbe71a5c-948b-4df6-b983-c26c28ca3826",
+      "target": "e64185af-9898-4c4b-aacd-497c6df77e29",
       "targetHandle": "frame_number",
-      "id": "reactflow__edge-ce4efb63-5b85-4a04-961c-7459df0c4906item-dbe71a5c-948b-4df6-b983-c26c28ca3826frame_number",
+      "id": "reactflow__edge-ce4efb63-5b85-4a04-961c-7459df0c4906item-e64185af-9898-4c4b-aacd-497c6df77e29frame_number",
+      "type": "default"
+    },
+    {
+      "source": "b8db7e5b-efb6-4a7a-9e7b-52c19cde3522",
+      "sourceHandle": "image_index_collection",
+      "target": "019d8ff8-0008-4c75-b46d-c8224bba42c3",
+      "targetHandle": "item",
+      "id": "reactflow__edge-b8db7e5b-efb6-4a7a-9e7b-52c19cde3522image_index_collection-019d8ff8-0008-4c75-b46d-c8224bba42c3item",
+      "type": "default"
+    },
+    {
+      "source": "ce4efb63-5b85-4a04-961c-7459df0c4906",
+      "sourceHandle": "item",
+      "target": "b8db7e5b-efb6-4a7a-9e7b-52c19cde3522",
+      "targetHandle": "index",
+      "id": "reactflow__edge-ce4efb63-5b85-4a04-961c-7459df0c4906item-b8db7e5b-efb6-4a7a-9e7b-52c19cde3522index",
+      "type": "default"
+    },
+    {
+      "source": "5ea809b3-baad-4ca3-8d3f-61cd47bef8f4",
+      "sourceHandle": "image",
+      "target": "b8db7e5b-efb6-4a7a-9e7b-52c19cde3522",
+      "targetHandle": "image",
+      "id": "reactflow__edge-5ea809b3-baad-4ca3-8d3f-61cd47bef8f4image-b8db7e5b-efb6-4a7a-9e7b-52c19cde3522image",
+      "type": "default"
+    },
+    {
+      "source": "c9e1fd6d-8b82-4818-a39f-2e7019c2fc14",
+      "sourceHandle": "value",
+      "target": "900ec48b-8feb-4c18-ac4b-03557850c3be",
+      "targetHandle": "video_out_path",
+      "id": "reactflow__edge-c9e1fd6d-8b82-4818-a39f-2e7019c2fc14value-900ec48b-8feb-4c18-ac4b-03557850c3bevideo_out_path",
+      "type": "default"
+    },
+    {
+      "source": "019d8ff8-0008-4c75-b46d-c8224bba42c3",
+      "sourceHandle": "collection",
+      "target": "900ec48b-8feb-4c18-ac4b-03557850c3be",
+      "targetHandle": "image_index_collection",
+      "id": "reactflow__edge-019d8ff8-0008-4c75-b46d-c8224bba42c3collection-900ec48b-8feb-4c18-ac4b-03557850c3beimage_index_collection",
+      "type": "default"
+    },
+    {
+      "source": "a6313543-4447-4b0b-8014-9deff0dd6c12",
+      "sourceHandle": "value",
+      "target": "900ec48b-8feb-4c18-ac4b-03557850c3be",
+      "targetHandle": "fps",
+      "id": "reactflow__edge-a6313543-4447-4b0b-8014-9deff0dd6c12value-900ec48b-8feb-4c18-ac4b-03557850c3befps",
+      "type": "default"
+    },
+    {
+      "source": "262912d3-990c-4500-8067-d5e2b8b59b58",
+      "sourceHandle": "value",
+      "target": "03702ca1-e593-4a90-9934-9fee99b4a12c",
+      "targetHandle": "video_path",
+      "id": "reactflow__edge-262912d3-990c-4500-8067-d5e2b8b59b58value-03702ca1-e593-4a90-9934-9fee99b4a12cvideo_path",
+      "type": "default"
+    },
+    {
+      "source": "03702ca1-e593-4a90-9934-9fee99b4a12c",
+      "sourceHandle": "value",
+      "target": "5a5871a0-4625-4362-a3b8-c9681af02411",
+      "targetHandle": "stop",
+      "id": "reactflow__edge-03702ca1-e593-4a90-9934-9fee99b4a12cvalue-5a5871a0-4625-4362-a3b8-c9681af02411stop",
+      "type": "default"
+    },
+    {
+      "source": "262912d3-990c-4500-8067-d5e2b8b59b58",
+      "sourceHandle": "value",
+      "target": "42963149-cff4-430f-8008-cbd4cf037fd0",
+      "targetHandle": "video_path",
+      "id": "reactflow__edge-262912d3-990c-4500-8067-d5e2b8b59b58value-42963149-cff4-430f-8008-cbd4cf037fd0video_path",
+      "type": "default"
+    },
+    {
+      "source": "42963149-cff4-430f-8008-cbd4cf037fd0",
+      "sourceHandle": "value",
+      "target": "a6313543-4447-4b0b-8014-9deff0dd6c12",
+      "targetHandle": "a",
+      "id": "reactflow__edge-42963149-cff4-430f-8008-cbd4cf037fd0value-a6313543-4447-4b0b-8014-9deff0dd6c12a",
       "type": "default"
     }
   ]
