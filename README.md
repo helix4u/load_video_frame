@@ -12,7 +12,7 @@ Render every other frame and then interpolate the in-between frames with somethi
 
 Feel free to contribute or take ispiration for your own ideas and thanks to those who already have!
 
-[Example 3.1.1 Workflow](Example_Workflow.json)
+[Example 3.4.0rc1 Workflow](Example_Workflow.json)
 
 [Invoke AI Discord Thread](https://discord.com/channels/1020123559063990373/1136905319839174728)
 
