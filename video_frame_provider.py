@@ -182,3 +182,29 @@ class GetSourceFrameRateInvocation(BaseInvocation):
         video.release()
 
         return IntegerOutput(value=framerate)
+
+@invocation_output("ImageToImageNameOutput")
+class ImageToImageNameOutput(BaseInvocationOutput):
+    """Output class for Image to Image Name Invocation"""
+    image_name: str = OutputField(description="The name of the image")
+
+@invocation(
+    "ImageToImageNameInvocation",
+    title="Image to Image Name",
+    tags=["image", "name", "utility"],
+    category="utility",
+    version="1.0.0",
+)
+class ImageToImageNameInvocation(BaseInvocation):
+    """Invocation to extract the image name from an ImageField."""
+
+    # Input
+    image: ImageField = InputField(description="The ImageField to extract the name from")
+
+    def invoke(self, context: InvocationContext) -> ImageToImageNameOutput:
+        """Invoke method to extract the image name."""
+        # Extract the image name
+        image_name = self.image.image_name
+
+        # Return the image name in the output
+        return ImageToImageNameOutput(image_name=image_name)
