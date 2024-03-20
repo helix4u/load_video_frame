@@ -12,5 +12,6 @@ Both LoadVideoFrameInvocation and ImagesIndexToVideoOutput have been updated to 
 
 # Info
 [Original/ Main Repo](https://github.com/helix4u/load_video_frame)
+
 This community node is developed and maintained by [helix4u/Gille] (https://github.com/helix4u)
 
