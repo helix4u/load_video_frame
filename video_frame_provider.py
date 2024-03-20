@@ -75,8 +75,6 @@ class LoadVideoFrameInvocation(BaseInvocation):
         )
 
 
-
-
 @invocation_output("image_index_collect_output")
 class ImageIndexCollectOutput(BaseInvocationOutput):
     """XImageCollectOutput string containing an array of xItem, Image_name converted to json"""
