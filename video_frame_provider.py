@@ -10,17 +10,15 @@ from invokeai.app.services.image_records.image_records_common import ImageCatego
 from invokeai.app.invocations.baseinvocation import (
     BaseInvocation,
     BaseInvocationOutput,
-    FieldDescriptions,
     Input,
-    InputField,
     InvocationContext,
-    OutputField,
-    UIComponent,
-    UIType,
-    WithMetadata,
-    WithWorkflow,
     invocation,
     invocation_output,
+)
+from invokeai.app.invocations.fields import (
+    InputField,
+    OutputField,
+    UIType,
 )
 
 """
@@ -33,7 +31,7 @@ If work need to be made for others, clarity on when and why the change is going 
     title="Load Video Frame", 
     tags=["video", "load", "frame"], 
     category="image",
-    version="1.0.1",
+    version="1.0.2",
 )
 class LoadVideoFrameInvocation(BaseInvocation):
     """Load a specific frame from an MP4 video and provide it as output."""
@@ -61,12 +59,12 @@ class LoadVideoFrameInvocation(BaseInvocation):
         image = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
 
         # Create the ImageField object
-        image_dto = context.services.images.create(
+        image_dto = context._services.images.create(
             image=image,
             image_origin=ResourceOrigin.INTERNAL,
             image_category=ImageCategory.GENERAL,
             node_id=self.id,
-            session_id=context.graph_execution_state_id,
+            session_id=context._data.queue_item.session_id,
             is_intermediate=self.is_intermediate,
         )
 
@@ -75,7 +73,6 @@ class LoadVideoFrameInvocation(BaseInvocation):
             width=image_dto.width,
             height=image_dto.height,
         )
-
 
 
 @invocation_output("image_index_collect_output")
@@ -108,23 +105,23 @@ class ImagesIndexToVideoOutput(BaseInvocationOutput):
     title="Images Index To Video Output", 
     tags=["video", "collection", "image", "index", "frame", "collection"], 
     category="collections",
-    version="1.0.1",
+    version="1.0.2",
 )
 class ImagesIndexToVideoInvocation(BaseInvocation):#, PILInvocationConfig):
     """Load a collection of xyimage types (json of (x_item,y_item,image_name)array) and create a gridimage of them"""
-    image_index_collection: list[str] = InputField(default_factory=list, description="The Image Index Collection", ui_type=UIType.ImageCollection)
+    image_index_collection: list[str] = InputField(description="The Image Index Collection")
     video_out_path: str = InputField(default='', description="Path and filename of output mp4")
     fps: int = InputField(default=30, description="FPS")
 
     def invoke(self, context: InvocationContext) -> ImagesIndexToVideoOutput:
         """Convert an image list a video"""
         new_array = sorted([json.loads(s) for s in self.image_index_collection], key=lambda x: x[0])
-        image = context.services.images.get_pil_image(new_array[0][1])
+        image = context._services.images.get_pil_image(new_array[0][1])
         
         video_writer = cv2.VideoWriter(self.video_out_path, cv2.VideoWriter_fourcc(*'X264'), self.fps, (image.width, image.height))
 
         for item in new_array:
-            image = context.services.images.get_pil_image(item[1])
+            image = context._services.images.get_pil_image(item[1])
             image = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
             video_writer.write(image)
 
