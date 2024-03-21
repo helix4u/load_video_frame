@@ -1,17 +1,17 @@
-# 4.0.0rc4 Updates
+# Load Video Frame
 
-Mostly we needed to update the fields imports, such as InputField and OutputField, as they are now apart of as invocations.fields rather than invocations.baseinvocation. 
-I removed some unnessary/unused imports while at it.
+This is a video frame image provider + indexer/video creation nodes for hooking up to iterators and ranges and ControlNets and such for [invokeAI](https://github.com/invoke-ai/InvokeAI) node experimentation.
+Think animation + ControlNet outputs.
 
-All instances of context.services were converted to context._services
-graph_execution_state_id was switched to _data.queue_item.session_id in the LoadVideoFrameInvocation invoke() method
+# Caveats: 
 
-The ImagesIndexToVideoOutput image_index_collection ui_type was updated to _Collection and default_factory was removed, as they were giving deprication warnings.
+A high number of frames may cause a bit of time to create with the example workflow. I'd stick to smaller batches of frames at first and slowly ramp up to find a length of time you're willing to wait for the task to start/complete.
 
-Both LoadVideoFrameInvocation and ImagesIndexToVideoOutput have been updated to version 1.0.2
+# Tips: 
+Render every other frame and then interpolate the in-between frames with something like RIFE or FILM for some more smoothing and a lot less rendering time.
 
-# Info
-[Original/ Main Repo](https://github.com/helix4u/load_video_frame)
+Feel free to contribute or take ispiration for your own ideas and thanks to those who already have!
 
-This community node is developed and maintained by [helix4u/Gille] (https://github.com/helix4u)
+[Invoke AI Discord Thread](https://discord.com/channels/1020123559063990373/1136905319839174728)
 
+<a href='https://ko-fi.com/gille' target='_blank'><img height='35' style='border:0px;height:46px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' />
