@@ -1,0 +1,1093 @@
+{
+  "name": "16x9 half framerate example",
+  "author": "Gille",
+  "description": "2023-10-04 - 3.2.0 - 16x9 half framerate example",
+  "version": "1.0.0",
+  "contact": "Gille",
+  "tags": "yet another remake because versions",
+  "notes": "2023-10-04 - 3.2.0 - 16x9 half framerate example",
+  "exposedFields": [
+    {
+      "nodeId": "99a86e5d-1998-437b-b56d-67154133bd41",
+      "fieldName": "value"
+    },
+    {
+      "nodeId": "cdfec1ba-52cc-4e10-9f28-d48081fb84a9",
+      "fieldName": "prompt"
+    },
+    {
+      "nodeId": "8574c4b6-0246-4565-8e43-12dc8af137e5",
+      "fieldName": "prompt"
+    },
+    {
+      "nodeId": "7defff83-eeb8-45f6-9a74-a0f2876b7a78",
+      "fieldName": "value"
+    },
+    {
+      "nodeId": "7a7824c4-fc46-4df7-b564-ee4172f3c985",
+      "fieldName": "control_model"
+    },
+    {
+      "nodeId": "fc8d29e9-2e62-4faa-b5c1-5f338f827229",
+      "fieldName": "steps"
+    },
+    {
+      "nodeId": "fc8d29e9-2e62-4faa-b5c1-5f338f827229",
+      "fieldName": "scheduler"
+    }
+  ],
+  "meta": {
+    "category": "user",
+    "version": "3.0.0"
+  },
+  "id": "5a022c70-13fc-49b0-afbf-5c861d1059b0",
+  "form": {
+    "elements": {
+      "root": {
+        "id": "root",
+        "data": {
+          "layout": "column",
+          "children": [
+            "node-field-hUzVjuAT4L",
+            "node-field-LXYc2xufMj",
+            "node-field-JGMuW99TQj",
+            "node-field-i6SCWINCOm"
+          ]
+        },
+        "type": "container"
+      },
+      "node-field-JGMuW99TQj": {
+        "id": "node-field-JGMuW99TQj",
+        "parentId": "root",
+        "data": {
+          "fieldIdentifier": {
+            "nodeId": "8574c4b6-0246-4565-8e43-12dc8af137e5",
+            "fieldName": "prompt"
+          },
+          "showDescription": false,
+          "settings": {
+            "type": "string-field-config",
+            "component": "input"
+          }
+        },
+        "type": "node-field"
+      },
+      "node-field-LXYc2xufMj": {
+        "id": "node-field-LXYc2xufMj",
+        "parentId": "root",
+        "data": {
+          "fieldIdentifier": {
+            "nodeId": "cdfec1ba-52cc-4e10-9f28-d48081fb84a9",
+            "fieldName": "prompt"
+          },
+          "showDescription": false,
+          "settings": {
+            "type": "string-field-config",
+            "component": "input"
+          }
+        },
+        "type": "node-field"
+      },
+      "node-field-hUzVjuAT4L": {
+        "id": "node-field-hUzVjuAT4L",
+        "parentId": "root",
+        "data": {
+          "fieldIdentifier": {
+            "nodeId": "99a86e5d-1998-437b-b56d-67154133bd41",
+            "fieldName": "value"
+          },
+          "showDescription": false,
+          "settings": {
+            "type": "string-field-config",
+            "component": "input"
+          }
+        },
+        "type": "node-field"
+      },
+      "node-field-i6SCWINCOm": {
+        "id": "node-field-i6SCWINCOm",
+        "type": "node-field",
+        "parentId": "root",
+        "data": {
+          "fieldIdentifier": {
+            "nodeId": "0f3865af-4618-4c9e-87b7-41f1be8eef30",
+            "fieldName": "value"
+          },
+          "settings": {
+            "type": "integer-field-config",
+            "component": "number-input"
+          },
+          "showDescription": true
+        }
+      }
+    },
+    "rootElementId": "root"
+  },
+  "nodes": [
+    {
+      "id": "019d8ff8-0008-4c75-b46d-c8224bba42c3",
+      "type": "invocation",
+      "data": {
+        "id": "019d8ff8-0008-4c75-b46d-c8224bba42c3",
+        "version": "1.0.0",
+        "nodePack": "invokeai",
+        "label": "",
+        "notes": "",
+        "type": "collect",
+        "inputs": {
+          "item": {
+            "name": "item",
+            "label": "",
+            "description": ""
+          }
+        },
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": false
+      },
+      "position": {
+        "x": 550,
+        "y": 800
+      }
+    },
+    {
+      "id": "42f4a121-d62d-49af-8bcf-087259c5d064",
+      "type": "invocation",
+      "data": {
+        "id": "42f4a121-d62d-49af-8bcf-087259c5d064",
+        "version": "1.3.2",
+        "nodePack": "invokeai",
+        "label": "",
+        "notes": "",
+        "type": "l2i",
+        "inputs": {
+          "board": {
+            "name": "board",
+            "label": "",
+            "description": "",
+            "value": "auto"
+          },
+          "metadata": {
+            "name": "metadata",
+            "label": "",
+            "description": ""
+          },
+          "latents": {
+            "name": "latents",
+            "label": "",
+            "description": ""
+          },
+          "vae": {
+            "name": "vae",
+            "label": "",
+            "description": ""
+          },
+          "tiled": {
+            "name": "tiled",
+            "label": "",
+            "description": "",
+            "value": true
+          },
+          "tile_size": {
+            "name": "tile_size",
+            "label": "",
+            "description": "",
+            "value": 0
+          },
+          "fp32": {
+            "name": "fp32",
+            "label": "",
+            "description": "",
+            "value": false
+          }
+        },
+        "isOpen": true,
+        "isIntermediate": false,
+        "useCache": true
+      },
+      "position": {
+        "x": 75,
+        "y": 675
+      }
+    },
+    {
+      "id": "ce4efb63-5b85-4a04-961c-7459df0c4906",
+      "type": "invocation",
+      "data": {
+        "id": "ce4efb63-5b85-4a04-961c-7459df0c4906",
+        "version": "1.1.0",
+        "nodePack": "invokeai",
+        "label": "",
+        "notes": "",
+        "type": "iterate",
+        "inputs": {
+          "collection": {
+            "name": "collection",
+            "label": "",
+            "description": ""
+          }
+        },
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": false
+      },
+      "position": {
+        "x": -310.8273577412563,
+        "y": -259.6673848643594
+      }
+    },
+    {
+      "id": "5a5871a0-4625-4362-a3b8-c9681af02411",
+      "type": "invocation",
+      "data": {
+        "id": "5a5871a0-4625-4362-a3b8-c9681af02411",
+        "version": "1.0.0",
+        "nodePack": "invokeai",
+        "label": "",
+        "notes": "",
+        "type": "range",
+        "inputs": {
+          "start": {
+            "name": "start",
+            "label": "",
+            "description": "",
+            "value": 1
+          },
+          "stop": {
+            "name": "stop",
+            "label": "",
+            "description": "",
+            "value": 10
+          },
+          "step": {
+            "name": "step",
+            "label": "",
+            "description": "",
+            "value": 1
+          }
+        },
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": false
+      },
+      "position": {
+        "x": -762.26039897831,
+        "y": 54.905706368629
+      }
+    },
+    {
+      "id": "99a86e5d-1998-437b-b56d-67154133bd41",
+      "type": "invocation",
+      "data": {
+        "id": "99a86e5d-1998-437b-b56d-67154133bd41",
+        "version": "1.0.1",
+        "nodePack": "invokeai",
+        "label": "",
+        "notes": "",
+        "type": "string",
+        "inputs": {
+          "value": {
+            "name": "value",
+            "label": "",
+            "description": "",
+            "value": "F:\\media\\burn-notice-michael-weston.mp4"
+          }
+        },
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": true
+      },
+      "position": {
+        "x": -1213.8975766648548,
+        "y": -173.8017006121636
+      }
+    },
+    {
+      "id": "a6313543-4447-4b0b-8014-9deff0dd6c12",
+      "type": "invocation",
+      "data": {
+        "id": "a6313543-4447-4b0b-8014-9deff0dd6c12",
+        "version": "1.0.1",
+        "nodePack": "invokeai",
+        "label": "Divide Integers",
+        "notes": "",
+        "type": "div",
+        "inputs": {
+          "a": {
+            "name": "a",
+            "label": "",
+            "description": "",
+            "value": 2
+          },
+          "b": {
+            "name": "b",
+            "label": "",
+            "description": "",
+            "value": 1
+          }
+        },
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": false
+      },
+      "position": {
+        "x": -1225,
+        "y": 553.8489380762073
+      }
+    },
+    {
+      "id": "cdfec1ba-52cc-4e10-9f28-d48081fb84a9",
+      "type": "invocation",
+      "data": {
+        "id": "cdfec1ba-52cc-4e10-9f28-d48081fb84a9",
+        "version": "1.2.1",
+        "nodePack": "invokeai",
+        "label": "",
+        "notes": "",
+        "type": "compel",
+        "inputs": {
+          "prompt": {
+            "name": "prompt",
+            "label": "",
+            "description": "",
+            "value": "john wick threatening a stuffed animal with a hotdog, bottle of ketchup, \"be cuter or I will put ketchup on this hotdog!\""
+          },
+          "clip": {
+            "name": "clip",
+            "label": "",
+            "description": ""
+          },
+          "mask": {
+            "name": "mask",
+            "label": "",
+            "description": ""
+          }
+        },
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": true
+      },
+      "position": {
+        "x": -750,
+        "y": 775
+      }
+    },
+    {
+      "id": "8574c4b6-0246-4565-8e43-12dc8af137e5",
+      "type": "invocation",
+      "data": {
+        "id": "8574c4b6-0246-4565-8e43-12dc8af137e5",
+        "version": "1.2.1",
+        "nodePack": "invokeai",
+        "label": "",
+        "notes": "",
+        "type": "compel",
+        "inputs": {
+          "prompt": {
+            "name": "prompt",
+            "label": "",
+            "description": "",
+            "value": "nudity"
+          },
+          "clip": {
+            "name": "clip",
+            "label": "",
+            "description": ""
+          },
+          "mask": {
+            "name": "mask",
+            "label": "",
+            "description": ""
+          }
+        },
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": true
+      },
+      "position": {
+        "x": -750,
+        "y": 1025
+      }
+    },
+    {
+      "id": "40e21c11-71c3-45ed-b594-dbe3df98cfa4",
+      "type": "invocation",
+      "data": {
+        "id": "40e21c11-71c3-45ed-b594-dbe3df98cfa4",
+        "version": "1.0.3",
+        "nodePack": "invokeai",
+        "label": "",
+        "notes": "",
+        "type": "noise",
+        "inputs": {
+          "seed": {
+            "name": "seed",
+            "label": "",
+            "description": "",
+            "value": 0
+          },
+          "width": {
+            "name": "width",
+            "label": "",
+            "description": "",
+            "value": 1024
+          },
+          "height": {
+            "name": "height",
+            "label": "",
+            "description": "",
+            "value": 576
+          },
+          "use_cpu": {
+            "name": "use_cpu",
+            "label": "",
+            "description": "",
+            "value": true
+          }
+        },
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": true
+      },
+      "position": {
+        "x": -767.6061945955377,
+        "y": 302.37273021507275
+      }
+    },
+    {
+      "id": "6847607f-8ca2-448e-b231-cc9a58917606",
+      "type": "invocation",
+      "data": {
+        "id": "6847607f-8ca2-448e-b231-cc9a58917606",
+        "version": "1.1.0",
+        "nodePack": "XYGrid_nodes",
+        "label": "",
+        "notes": "",
+        "type": "main_model_loader_input",
+        "inputs": {
+          "model": {
+            "name": "model",
+            "label": "",
+            "description": "",
+            "value": {
+              "key": "8a967bf1-6be8-4da6-a98e-87c0de423c25",
+              "hash": "blake3:1f03f724506ef06dc3d059accc1fb26bd1c11dd5794cbb405775f72f63a2597b",
+              "name": "GMR4T_W5",
+              "base": "sd-1",
+              "type": "main"
+            }
+          }
+        },
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": true
+      },
+      "position": {
+        "x": -1222.178811942685,
+        "y": 870.2730956020566
+      }
+    },
+    {
+      "id": "58bac2a9-5fcf-4b0c-9e65-ff0809e1aee3",
+      "type": "invocation",
+      "data": {
+        "id": "58bac2a9-5fcf-4b0c-9e65-ff0809e1aee3",
+        "version": "1.5.4",
+        "nodePack": "invokeai",
+        "label": "",
+        "notes": "",
+        "type": "denoise_latents",
+        "inputs": {
+          "positive_conditioning": {
+            "name": "positive_conditioning",
+            "label": "",
+            "description": ""
+          },
+          "negative_conditioning": {
+            "name": "negative_conditioning",
+            "label": "",
+            "description": ""
+          },
+          "noise": {
+            "name": "noise",
+            "label": "",
+            "description": ""
+          },
+          "steps": {
+            "name": "steps",
+            "label": "",
+            "description": "",
+            "value": 10
+          },
+          "cfg_scale": {
+            "name": "cfg_scale",
+            "label": "",
+            "description": "",
+            "value": 7.5
+          },
+          "denoising_start": {
+            "name": "denoising_start",
+            "label": "",
+            "description": "",
+            "value": 0
+          },
+          "denoising_end": {
+            "name": "denoising_end",
+            "label": "",
+            "description": "",
+            "value": 1
+          },
+          "scheduler": {
+            "name": "scheduler",
+            "label": "",
+            "description": "",
+            "value": "euler"
+          },
+          "unet": {
+            "name": "unet",
+            "label": "",
+            "description": ""
+          },
+          "control": {
+            "name": "control",
+            "label": "",
+            "description": ""
+          },
+          "ip_adapter": {
+            "name": "ip_adapter",
+            "label": "",
+            "description": ""
+          },
+          "t2i_adapter": {
+            "name": "t2i_adapter",
+            "label": "",
+            "description": ""
+          },
+          "cfg_rescale_multiplier": {
+            "name": "cfg_rescale_multiplier",
+            "label": "",
+            "description": "",
+            "value": 0
+          },
+          "latents": {
+            "name": "latents",
+            "label": "",
+            "description": ""
+          },
+          "denoise_mask": {
+            "name": "denoise_mask",
+            "label": "",
+            "description": ""
+          }
+        },
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": true
+      },
+      "position": {
+        "x": -319.6473808068024,
+        "y": 728.2184422313026
+      }
+    },
+    {
+      "id": "3142de4e-07c4-465e-8cb0-6ed8babafb9b",
+      "type": "invocation",
+      "data": {
+        "id": "3142de4e-07c4-465e-8cb0-6ed8babafb9b",
+        "version": "1.1.3",
+        "nodePack": "invokeai",
+        "label": "",
+        "notes": "",
+        "type": "controlnet",
+        "inputs": {
+          "image": {
+            "name": "image",
+            "label": "",
+            "description": ""
+          },
+          "control_model": {
+            "name": "control_model",
+            "label": "",
+            "description": "",
+            "value": {
+              "key": "9e7ecf88-4587-440b-a4e1-9019178aa94a",
+              "hash": "blake3:f0812e13758f91baf4e54b7dbb707b70642937d3b2098cd2b94cc36d3eba308e",
+              "name": "tile",
+              "base": "sd-1",
+              "type": "controlnet"
+            }
+          },
+          "control_weight": {
+            "name": "control_weight",
+            "label": "",
+            "description": "",
+            "value": 0.5
+          },
+          "begin_step_percent": {
+            "name": "begin_step_percent",
+            "label": "",
+            "description": "",
+            "value": 0
+          },
+          "end_step_percent": {
+            "name": "end_step_percent",
+            "label": "",
+            "description": "",
+            "value": 1
+          },
+          "control_mode": {
+            "name": "control_mode",
+            "label": "",
+            "description": "",
+            "value": "balanced"
+          },
+          "resize_mode": {
+            "name": "resize_mode",
+            "label": "",
+            "description": "",
+            "value": "just_resize"
+          }
+        },
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": false
+      },
+      "position": {
+        "x": -327.19027205241173,
+        "y": 233.3426273013816
+      }
+    },
+    {
+      "id": "d46eb54a-4e24-49f8-9b1d-80220621bd97",
+      "type": "invocation",
+      "data": {
+        "id": "d46eb54a-4e24-49f8-9b1d-80220621bd97",
+        "type": "float_to_int",
+        "version": "1.0.1",
+        "label": "",
+        "notes": "",
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": false,
+        "nodePack": "invokeai",
+        "inputs": {
+          "value": {
+            "name": "value",
+            "label": "",
+            "description": "",
+            "value": 0
+          },
+          "multiple": {
+            "name": "multiple",
+            "label": "",
+            "description": "",
+            "value": 1
+          },
+          "method": {
+            "name": "method",
+            "label": "",
+            "description": "",
+            "value": "Nearest"
+          }
+        }
+      },
+      "position": {
+        "x": -1222.243037745512,
+        "y": 329.1606192627432
+      }
+    },
+    {
+      "id": "8ab18adc-6e28-441e-bc91-c073c10b19e2",
+      "type": "invocation",
+      "data": {
+        "id": "8ab18adc-6e28-441e-bc91-c073c10b19e2",
+        "type": "get_total_frames",
+        "version": "1.1.0",
+        "label": "",
+        "notes": "",
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": false,
+        "nodePack": "load_video_frame",
+        "inputs": {
+          "video_path": {
+            "name": "video_path",
+            "label": "",
+            "description": "",
+            "value": ""
+          }
+        }
+      },
+      "position": {
+        "x": -1207.3085508536308,
+        "y": 31.05559038736
+      }
+    },
+    {
+      "id": "eed0adec-c23a-4645-a29f-39c59af102b4",
+      "type": "invocation",
+      "data": {
+        "id": "eed0adec-c23a-4645-a29f-39c59af102b4",
+        "type": "get_source_framerate",
+        "version": "1.1.0",
+        "label": "",
+        "notes": "",
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": false,
+        "nodePack": "load_video_frame",
+        "inputs": {
+          "video_path": {
+            "name": "video_path",
+            "label": "",
+            "description": "",
+            "value": ""
+          }
+        }
+      },
+      "position": {
+        "x": -1213.382598363206,
+        "y": 197.07955564908386
+      }
+    },
+    {
+      "id": "4b8f2a7a-800b-42d2-a706-7b138e550599",
+      "type": "invocation",
+      "data": {
+        "id": "4b8f2a7a-800b-42d2-a706-7b138e550599",
+        "type": "load_video_frame",
+        "version": "1.1.0",
+        "label": "",
+        "notes": "",
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": false,
+        "nodePack": "load_video_frame",
+        "inputs": {
+          "video_path": {
+            "name": "video_path",
+            "label": "",
+            "description": "",
+            "value": ""
+          },
+          "frame_number": {
+            "name": "frame_number",
+            "label": "",
+            "description": "",
+            "value": 1
+          }
+        }
+      },
+      "position": {
+        "x": -320.782335432654,
+        "y": -76.25258228180292
+      }
+    },
+    {
+      "id": "b4e7fe6b-7c81-4f96-a519-b9b9a70fc00e",
+      "type": "invocation",
+      "data": {
+        "id": "b4e7fe6b-7c81-4f96-a519-b9b9a70fc00e",
+        "type": "image_index_collect",
+        "version": "1.1.0",
+        "label": "",
+        "notes": "",
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": false,
+        "nodePack": "load_video_frame",
+        "inputs": {
+          "index": {
+            "name": "index",
+            "label": "",
+            "description": "",
+            "value": 0
+          },
+          "image": {
+            "name": "image",
+            "label": "",
+            "description": ""
+          }
+        }
+      },
+      "position": {
+        "x": 537.552548806186,
+        "y": 482.5597885991211
+      }
+    },
+    {
+      "id": "37bcada4-777e-4b2b-8580-1341f4d3cea0",
+      "type": "invocation",
+      "data": {
+        "id": "37bcada4-777e-4b2b-8580-1341f4d3cea0",
+        "type": "images_index_to_video",
+        "version": "1.1.0",
+        "label": "",
+        "notes": "",
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": false,
+        "nodePack": "load_video_frame",
+        "inputs": {
+          "image_index_collection": {
+            "name": "image_index_collection",
+            "label": "",
+            "description": "",
+            "value": []
+          },
+          "video_out_path": {
+            "name": "video_out_path",
+            "label": "",
+            "description": "",
+            "value": "F:\\AITools\\invokeai\\outputs\\video\\output_test.mp4"
+          },
+          "fps": {
+            "name": "fps",
+            "label": "",
+            "description": "",
+            "value": 30
+          },
+          "codec": {
+            "name": "codec",
+            "label": "",
+            "description": "",
+            "value": "x264"
+          }
+        }
+      },
+      "position": {
+        "x": 535.5278663029941,
+        "y": 921.9158917917316
+      }
+    },
+    {
+      "id": "0f3865af-4618-4c9e-87b7-41f1be8eef30",
+      "type": "invocation",
+      "data": {
+        "id": "0f3865af-4618-4c9e-87b7-41f1be8eef30",
+        "type": "integer",
+        "version": "1.0.1",
+        "label": "",
+        "notes": "",
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": true,
+        "nodePack": "invokeai",
+        "inputs": {
+          "value": {
+            "name": "value",
+            "label": "Frame step",
+            "description": "",
+            "value": 1
+          }
+        }
+      },
+      "position": {
+        "x": -1222.2380990850575,
+        "y": 709.2721674181159
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "reactflow__edge-5a5871a0-4625-4362-a3b8-c9681af02411collection-ce4efb63-5b85-4a04-961c-7459df0c4906collection",
+      "type": "default",
+      "source": "5a5871a0-4625-4362-a3b8-c9681af02411",
+      "target": "ce4efb63-5b85-4a04-961c-7459df0c4906",
+      "sourceHandle": "collection",
+      "targetHandle": "collection"
+    },
+    {
+      "id": "reactflow__edge-6847607f-8ca2-448e-b231-cc9a58917606vae-42f4a121-d62d-49af-8bcf-087259c5d064vae",
+      "type": "default",
+      "source": "6847607f-8ca2-448e-b231-cc9a58917606",
+      "target": "42f4a121-d62d-49af-8bcf-087259c5d064",
+      "sourceHandle": "vae",
+      "targetHandle": "vae"
+    },
+    {
+      "id": "reactflow__edge-6847607f-8ca2-448e-b231-cc9a58917606clip-cdfec1ba-52cc-4e10-9f28-d48081fb84a9clip",
+      "type": "default",
+      "source": "6847607f-8ca2-448e-b231-cc9a58917606",
+      "target": "cdfec1ba-52cc-4e10-9f28-d48081fb84a9",
+      "sourceHandle": "clip",
+      "targetHandle": "clip"
+    },
+    {
+      "id": "reactflow__edge-6847607f-8ca2-448e-b231-cc9a58917606clip-8574c4b6-0246-4565-8e43-12dc8af137e5clip",
+      "type": "default",
+      "source": "6847607f-8ca2-448e-b231-cc9a58917606",
+      "target": "8574c4b6-0246-4565-8e43-12dc8af137e5",
+      "sourceHandle": "clip",
+      "targetHandle": "clip"
+    },
+    {
+      "id": "reactflow__edge-cdfec1ba-52cc-4e10-9f28-d48081fb84a9conditioning-58bac2a9-5fcf-4b0c-9e65-ff0809e1aee3positive_conditioning",
+      "type": "default",
+      "source": "cdfec1ba-52cc-4e10-9f28-d48081fb84a9",
+      "target": "58bac2a9-5fcf-4b0c-9e65-ff0809e1aee3",
+      "sourceHandle": "conditioning",
+      "targetHandle": "positive_conditioning"
+    },
+    {
+      "id": "reactflow__edge-8574c4b6-0246-4565-8e43-12dc8af137e5conditioning-58bac2a9-5fcf-4b0c-9e65-ff0809e1aee3negative_conditioning",
+      "type": "default",
+      "source": "8574c4b6-0246-4565-8e43-12dc8af137e5",
+      "target": "58bac2a9-5fcf-4b0c-9e65-ff0809e1aee3",
+      "sourceHandle": "conditioning",
+      "targetHandle": "negative_conditioning"
+    },
+    {
+      "id": "reactflow__edge-6847607f-8ca2-448e-b231-cc9a58917606unet-58bac2a9-5fcf-4b0c-9e65-ff0809e1aee3unet",
+      "type": "default",
+      "source": "6847607f-8ca2-448e-b231-cc9a58917606",
+      "target": "58bac2a9-5fcf-4b0c-9e65-ff0809e1aee3",
+      "sourceHandle": "unet",
+      "targetHandle": "unet"
+    },
+    {
+      "id": "reactflow__edge-58bac2a9-5fcf-4b0c-9e65-ff0809e1aee3latents-42f4a121-d62d-49af-8bcf-087259c5d064latents",
+      "type": "default",
+      "source": "58bac2a9-5fcf-4b0c-9e65-ff0809e1aee3",
+      "target": "42f4a121-d62d-49af-8bcf-087259c5d064",
+      "sourceHandle": "latents",
+      "targetHandle": "latents"
+    },
+    {
+      "id": "reactflow__edge-3142de4e-07c4-465e-8cb0-6ed8babafb9bcontrol-58bac2a9-5fcf-4b0c-9e65-ff0809e1aee3control",
+      "type": "default",
+      "source": "3142de4e-07c4-465e-8cb0-6ed8babafb9b",
+      "target": "58bac2a9-5fcf-4b0c-9e65-ff0809e1aee3",
+      "sourceHandle": "control",
+      "targetHandle": "control"
+    },
+    {
+      "id": "reactflow__edge-40e21c11-71c3-45ed-b594-dbe3df98cfa4noise-58bac2a9-5fcf-4b0c-9e65-ff0809e1aee3noise",
+      "type": "default",
+      "source": "40e21c11-71c3-45ed-b594-dbe3df98cfa4",
+      "target": "58bac2a9-5fcf-4b0c-9e65-ff0809e1aee3",
+      "sourceHandle": "noise",
+      "targetHandle": "noise"
+    },
+    {
+      "id": "reactflow__edge-99a86e5d-1998-437b-b56d-67154133bd41value-8ab18adc-6e28-441e-bc91-c073c10b19e2video_path",
+      "type": "default",
+      "source": "99a86e5d-1998-437b-b56d-67154133bd41",
+      "target": "8ab18adc-6e28-441e-bc91-c073c10b19e2",
+      "sourceHandle": "value",
+      "targetHandle": "video_path"
+    },
+    {
+      "id": "reactflow__edge-8ab18adc-6e28-441e-bc91-c073c10b19e2value-5a5871a0-4625-4362-a3b8-c9681af02411stop",
+      "type": "default",
+      "source": "8ab18adc-6e28-441e-bc91-c073c10b19e2",
+      "target": "5a5871a0-4625-4362-a3b8-c9681af02411",
+      "sourceHandle": "value",
+      "targetHandle": "stop"
+    },
+    {
+      "id": "reactflow__edge-99a86e5d-1998-437b-b56d-67154133bd41value-eed0adec-c23a-4645-a29f-39c59af102b4video_path",
+      "type": "default",
+      "source": "99a86e5d-1998-437b-b56d-67154133bd41",
+      "target": "eed0adec-c23a-4645-a29f-39c59af102b4",
+      "sourceHandle": "value",
+      "targetHandle": "video_path"
+    },
+    {
+      "id": "reactflow__edge-eed0adec-c23a-4645-a29f-39c59af102b4value-d46eb54a-4e24-49f8-9b1d-80220621bd97value",
+      "type": "default",
+      "source": "eed0adec-c23a-4645-a29f-39c59af102b4",
+      "target": "d46eb54a-4e24-49f8-9b1d-80220621bd97",
+      "sourceHandle": "value",
+      "targetHandle": "value"
+    },
+    {
+      "id": "reactflow__edge-ce4efb63-5b85-4a04-961c-7459df0c4906item-4b8f2a7a-800b-42d2-a706-7b138e550599frame_number",
+      "type": "default",
+      "source": "ce4efb63-5b85-4a04-961c-7459df0c4906",
+      "target": "4b8f2a7a-800b-42d2-a706-7b138e550599",
+      "sourceHandle": "item",
+      "targetHandle": "frame_number"
+    },
+    {
+      "id": "reactflow__edge-99a86e5d-1998-437b-b56d-67154133bd41value-4b8f2a7a-800b-42d2-a706-7b138e550599video_path",
+      "type": "default",
+      "source": "99a86e5d-1998-437b-b56d-67154133bd41",
+      "target": "4b8f2a7a-800b-42d2-a706-7b138e550599",
+      "sourceHandle": "value",
+      "targetHandle": "video_path"
+    },
+    {
+      "id": "reactflow__edge-4b8f2a7a-800b-42d2-a706-7b138e550599image-3142de4e-07c4-465e-8cb0-6ed8babafb9bimage",
+      "type": "default",
+      "source": "4b8f2a7a-800b-42d2-a706-7b138e550599",
+      "target": "3142de4e-07c4-465e-8cb0-6ed8babafb9b",
+      "sourceHandle": "image",
+      "targetHandle": "image"
+    },
+    {
+      "id": "reactflow__edge-42f4a121-d62d-49af-8bcf-087259c5d064image-b4e7fe6b-7c81-4f96-a519-b9b9a70fc00eimage",
+      "type": "default",
+      "source": "42f4a121-d62d-49af-8bcf-087259c5d064",
+      "target": "b4e7fe6b-7c81-4f96-a519-b9b9a70fc00e",
+      "sourceHandle": "image",
+      "targetHandle": "image"
+    },
+    {
+      "id": "reactflow__edge-b4e7fe6b-7c81-4f96-a519-b9b9a70fc00eimage_index_collection-019d8ff8-0008-4c75-b46d-c8224bba42c3item",
+      "type": "default",
+      "source": "b4e7fe6b-7c81-4f96-a519-b9b9a70fc00e",
+      "target": "019d8ff8-0008-4c75-b46d-c8224bba42c3",
+      "sourceHandle": "image_index_collection",
+      "targetHandle": "item"
+    },
+    {
+      "id": "reactflow__edge-019d8ff8-0008-4c75-b46d-c8224bba42c3collection-37bcada4-777e-4b2b-8580-1341f4d3cea0image_index_collection",
+      "type": "default",
+      "source": "019d8ff8-0008-4c75-b46d-c8224bba42c3",
+      "target": "37bcada4-777e-4b2b-8580-1341f4d3cea0",
+      "sourceHandle": "collection",
+      "targetHandle": "image_index_collection"
+    },
+    {
+      "id": "reactflow__edge-a6313543-4447-4b0b-8014-9deff0dd6c12value-37bcada4-777e-4b2b-8580-1341f4d3cea0fps",
+      "type": "default",
+      "source": "a6313543-4447-4b0b-8014-9deff0dd6c12",
+      "target": "37bcada4-777e-4b2b-8580-1341f4d3cea0",
+      "sourceHandle": "value",
+      "targetHandle": "fps"
+    },
+    {
+      "id": "reactflow__edge-ce4efb63-5b85-4a04-961c-7459df0c4906item-b4e7fe6b-7c81-4f96-a519-b9b9a70fc00eindex",
+      "type": "default",
+      "source": "ce4efb63-5b85-4a04-961c-7459df0c4906",
+      "target": "b4e7fe6b-7c81-4f96-a519-b9b9a70fc00e",
+      "sourceHandle": "item",
+      "targetHandle": "index"
+    },
+    {
+      "id": "reactflow__edge-0f3865af-4618-4c9e-87b7-41f1be8eef30value-a6313543-4447-4b0b-8014-9deff0dd6c12b",
+      "type": "default",
+      "source": "0f3865af-4618-4c9e-87b7-41f1be8eef30",
+      "target": "a6313543-4447-4b0b-8014-9deff0dd6c12",
+      "sourceHandle": "value",
+      "targetHandle": "b"
+    },
+    {
+      "id": "reactflow__edge-0f3865af-4618-4c9e-87b7-41f1be8eef30value-5a5871a0-4625-4362-a3b8-c9681af02411step",
+      "type": "default",
+      "source": "0f3865af-4618-4c9e-87b7-41f1be8eef30",
+      "target": "5a5871a0-4625-4362-a3b8-c9681af02411",
+      "sourceHandle": "value",
+      "targetHandle": "step"
+    },
+    {
+      "id": "reactflow__edge-d46eb54a-4e24-49f8-9b1d-80220621bd97value-a6313543-4447-4b0b-8014-9deff0dd6c12a",
+      "type": "default",
+      "source": "d46eb54a-4e24-49f8-9b1d-80220621bd97",
+      "target": "a6313543-4447-4b0b-8014-9deff0dd6c12",
+      "sourceHandle": "value",
+      "targetHandle": "a"
+    }
+  ]
+}
