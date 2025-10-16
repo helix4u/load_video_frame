@@ -20,13 +20,12 @@ from invokeai.invocation_api import (
     invocation_output,
 )
 
-
 @invocation(
     "load_video_frame",
     title="Load Video Frame",
     tags=["video", "load", "frame"],
     category="image",
-    version="1.1.1",
+    version="1.1.2",
 )
 class LoadVideoFrameInvocation(BaseInvocation, WithMetadata, WithBoard):
     """Load a specific frame from an MP4 video and provide it as output."""
@@ -51,44 +50,40 @@ class LoadVideoFrameInvocation(BaseInvocation, WithMetadata, WithBoard):
         image_dto = context.images.save(image=image)
         return ImageOutput.build(image_dto)
 
-
 @invocation_output("image_index_collect_output")
 class ImageIndexCollectOutput(BaseInvocationOutput):
     """XImageCollectOutput string containing an array of xItem, Image_name converted to json"""
 
     image_index_collection: str = OutputField(description="The Image Index Collection ")
 
-
 @invocation(
     "image_index_collect",
     title="Image Index Collect",
     tags=["video", "collection", "image", "index", "frame"],
     category="collections",
-    version="1.1.0",
+    version="1.1.1",
 )
 class ImageIndexCollectInvocation(BaseInvocation):
     """ImageIndexCollect takes Image and Index then outputs it as an (index,image_name)array converted to json"""
 
     index: int = InputField(default=0, description="The index")
-    image: ImageField = InputField(default=None, description="The image associated with the index")
+    image: ImageField = InputField(description="The image associated with the index")
 
     def invoke(self, context: InvocationContext) -> ImageIndexCollectOutput:
         return ImageIndexCollectOutput(
             image_index_collection=json.dumps([self.index, self.image.image_name])
         )
 
-
 @invocation_output("ImagesIndexToVideoOutput")
 class ImagesIndexToVideoOutput(BaseInvocationOutput):
     """ImagesIndexToVideoOutput returns nothing"""
-
 
 @invocation(
     "images_index_to_video",
     title="Images Index To Video Output",
     tags=["video", "collection", "image", "index", "frame"],
     category="collections",
-    version="1.1.0",
+    version="1.1.1",
 )
 class ImagesIndexToVideoInvocation(BaseInvocation):
     """Load a collection of ImageIndex types (json of (idex,image_name)array) and create a video of them"""
@@ -123,13 +118,12 @@ class ImagesIndexToVideoInvocation(BaseInvocation):
         video_writer.release()
         return ImagesIndexToVideoOutput()
 
-
 @invocation(
     "get_total_frames",
     title="Get Total Frames",
     tags=["video", "frames", "count"],
     category="video",
-    version="1.1.0",
+    version="1.1.1",
 )
 class GetTotalFramesInvocation(BaseInvocation):
     """Get the total number of frames in an MP4 video and provide it as output."""
@@ -142,13 +136,12 @@ class GetTotalFramesInvocation(BaseInvocation):
         video.release()
         return IntegerOutput(value=total_frames)
 
-
 @invocation(
     "get_source_framerate",
     title="Get Source Frame Rate",
     tags=["video", "framerate"],
     category="video",
-    version="1.1.0",
+    version="1.1.1",
 )
 class GetSourceFrameRateInvocation(BaseInvocation):
     """Get the source framerate of an MP4 video and provide it as output."""
@@ -161,20 +154,18 @@ class GetSourceFrameRateInvocation(BaseInvocation):
         video.release()
         return FloatOutput(value=framerate)
 
-
 @invocation_output("image_to_image_name_output")
 class ImageToImageNameOutput(BaseInvocationOutput):
     """Output class for Image to Image Name Invocation"""
 
     image_name: str = OutputField(description="The name of the image")
 
-
 @invocation(
     "image_to_image_name",
     title="Image to Image Name",
     tags=["image", "name", "utility"],
     category="utility",
-    version="1.1.0",
+    version="1.1.1",
 )
 class ImageToImageNameInvocation(BaseInvocation):
     """Invocation to extract the image name from an ImageField."""
